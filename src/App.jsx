@@ -1,13 +1,12 @@
-import './App.css'
-import { TextField } from '@mui/material'
+import "./styles/App.css";
+import Loader from "./components/Loader/Loader";
 
 function App() {
-  
   return (
     <div className="App">
-     <TextField required id="outlined-basic" label="email" variant="filled" />
+      <Loader />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
