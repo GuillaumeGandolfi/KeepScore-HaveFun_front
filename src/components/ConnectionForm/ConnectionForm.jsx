@@ -10,18 +10,16 @@ const ConnectionForm = () => {
   const { emailField, passwordField } = useSelector((state) => state);
   const dispatch = useDispatch();
   const handleChange = (event) => {
-    console.log(event)
+    console.log(event);
     switch (event.target.id) {
       case "emailField":
-        
         return dispatch(changeEmailField(event.target.value));
-       
       case "passwordField":
         return dispatch(changePasswordField(event.target.value));
-        
       default:
     }
   };
+  
   return (
     <div className="connectionForm">
       <TextField
@@ -32,7 +30,7 @@ const ConnectionForm = () => {
         variant="outlined"
       />
       <TextField
-      onChange={handleChange}
+        onChange={handleChange}
         value={passwordField}
         type="password"
         id="passwordField"
@@ -44,5 +42,4 @@ const ConnectionForm = () => {
   );
 };
 
-
-export default ConnectionForm
+export default ConnectionForm;

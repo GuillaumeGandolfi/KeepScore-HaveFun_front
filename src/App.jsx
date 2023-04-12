@@ -5,8 +5,6 @@ import ConnectionForm from "./components/ConnectionForm/ConnectionForm";
 function App() {
   return (
     <div className="App">
-      <Loader />
-      <ConnectionForm />
     </div>
   );
 }

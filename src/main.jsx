@@ -6,12 +6,17 @@ import App from './App'
 import store from './store/store'
 import './styles/reset.css'
 import './styles/index.css'
+import ConnectionForm from './components/ConnectionForm/ConnectionForm';
 
 const router = createBrowserRouter([
   {
   path: '/',
   element: <App />
 },
+{
+  path:'/connect',
+  element: <ConnectionForm />
+}
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
