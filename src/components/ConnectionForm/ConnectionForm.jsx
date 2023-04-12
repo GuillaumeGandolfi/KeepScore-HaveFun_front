@@ -5,12 +5,14 @@ import {
   changeEmailField,
   changePasswordField,
 } from "../../store/actions/actions";
+import logoPurse from '../../assets/logoPurse.jpg'
+
+import './connectionForm.css'
 
 const ConnectionForm = () => {
   const { emailField, passwordField } = useSelector((state) => state);
   const dispatch = useDispatch();
   const handleChange = (event) => {
-    console.log(event);
     switch (event.target.id) {
       case "emailField":
         return dispatch(changeEmailField(event.target.value));
@@ -21,7 +23,9 @@ const ConnectionForm = () => {
   };
   
   return (
-    <div className="connectionForm">
+    <div className="formContainer">
+    <img src={logoPurse} alt="a purse smiling full of dollar bills" />
+    <form className="connectionForm">
       <TextField
         onChange={handleChange}
         value={emailField}
@@ -38,6 +42,8 @@ const ConnectionForm = () => {
         variant="outlined"
       />
       <Button variant="contained">Connect</Button>
+    </form>
+    
     </div>
   );
 };
