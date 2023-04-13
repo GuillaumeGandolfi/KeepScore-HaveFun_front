@@ -1,11 +1,22 @@
+import { useSelector, useDispatch } from 'react-redux';
 import { TextField } from '@mui/material';
-import React, { useState } from 'react';
+
+import Button from '@mui/material/Button';
+
+import { getInputValue } from '../../store/actions/signUpAction';
+
 
 function Inscription() {
-  const [nom, setNom] = useState('');
-  const [prenom, setPrenom] = useState('');
-  const [email, setEmail] = useState('');
-  const [motdepasse, setMotdepasse] = useState('');
+  const {firstname, lastname, signUpEmailField, signUpPasswordField} = useSelector(state => state)
+  const dispatch = useDispatch()
+  // const [nom, setNom] = useState('');
+  // const [prenom, setPrenom] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [motdepasse, setMotdepasse] = useState('');
+
+const handleChange = (event) => {
+  dispatch(getInputValue(event.target.id, event.target.value))
+}
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,14 +29,12 @@ function Inscription() {
   return (
     <form onSubmit={handleSubmit}>
       
-      <TextField onChange={(event) => setNom(event.target.value)} value={nom} id="outlined-basic" label="Nom" variant="outlined" />
-      <TextField onChange={(event) => setPrenom(event.target.value)}value={prenom} id="outlined-basic" label="Prenom" variant="outlined" />
-      <TextField onChange={(event)=>setEmail(event.target.value )} value ={email} id="outlined-basic" label="Email" variant="outlined" />
-      <TextField onChange={(event)=>setMotdepasse(event.target.value)} value={motdepasse} id="outlined-basic" label="Mot de passe" variant="outlined" />
-      
-
-      <button type="submit">Valider</button>
-      
+      <TextField onChange={handleChange} value={lastname} id="lastname" label="Nom" variant="outlined" />
+      <TextField onChange={handleChange}value={firstname} id="firstname" label="Prenom" variant="outlined" />
+      <TextField onChange={handleChange} value ={signUpEmailField} id="signUpEmailField" label="Email" variant="outlined" />
+      <TextField onChange={handleChange} value={signUpPasswordField} id="signUpPasswordField" label="Mot de passe" variant="outlined" />
+      <Button variant="contained" color="success"> Valider </Button>
+       
     </form>
   );
 }
