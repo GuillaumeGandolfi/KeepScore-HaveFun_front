@@ -41,7 +41,7 @@ const ConnectionForm = () => {
         label="password"
         variant="outlined"
       />
-      <Button variant="contained">Connect</Button>
+      <Button variant="contained">Connexion</Button>
     </form>
     
     </div>
