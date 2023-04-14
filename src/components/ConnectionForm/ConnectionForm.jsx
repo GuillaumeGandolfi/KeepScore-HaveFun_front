@@ -5,9 +5,10 @@ import {
   changeEmailField,
   changePasswordField,
 } from "../../store/actions/actions";
-import logoPurse from '../../assets/logoPurse.jpg'
+import Logo__3 from '../../assets/Logo__3.png'
 
 import './connectionForm.css'
+import Footer from "../Footer/Footer.jsx";
 
 const ConnectionForm = () => {
   const { emailField, passwordField } = useSelector((state) => state);
@@ -23,9 +24,12 @@ const ConnectionForm = () => {
   };
   
   return (
+      <>
     <div className="formContainer">
-    <img src={logoPurse} alt="a purse smiling full of dollar bills" />
+    <img src={Logo__3} alt="a purse smiling full of dollar bills" />
+      <p>Keep Score & Have Fun</p>
     <form className="connectionForm">
+
       <TextField
         onChange={handleChange}
         value={emailField}
@@ -33,6 +37,7 @@ const ConnectionForm = () => {
         label="email"
         variant="outlined"
       />
+
       <TextField
         onChange={handleChange}
         value={passwordField}
@@ -41,10 +46,13 @@ const ConnectionForm = () => {
         label="password"
         variant="outlined"
       />
+
       <Button variant="contained">Connexion</Button>
     </form>
-    
+
     </div>
+  <Footer />
+  </>
   );
 };
 

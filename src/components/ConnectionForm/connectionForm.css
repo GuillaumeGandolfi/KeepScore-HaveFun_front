@@ -7,8 +7,20 @@
 form{
     display: flex;
     flex-direction: column;
+
 }
 
 img {
-    max-width: 100%;
+    width: 30%;
+    height: 30%;
+}
+
+p {
+    margin-bottom: 3rem;
+    font-family: var(--pixel-font);
+    font-size: var(--h1-font-size);
+}
+
+.MuiInputBase-root {
+    margin-bottom: 0.5rem;
 }
