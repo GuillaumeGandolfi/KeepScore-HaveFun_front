@@ -1,11 +1,7 @@
 import "./styles/App.css";
-import Loading from "./components/Loading/Loading";
-import ConnectionForm from "./components/ConnectionForm/ConnectionForm";
-
 function App() {
   return (
     <div className="App">
-      <Loading />
     </div>
   );
 }

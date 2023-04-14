@@ -1,4 +1,3 @@
-import loadercoin from '../../assets/loadercoin.jpg'
 import './loading.css'
 
 
