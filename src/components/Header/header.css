@@ -13,7 +13,7 @@
     left: 0;
     z-index: var(--z-fixed);
     background-color: var(--body-color);
-    font-family: DotGothic16;
+    font-family: var(--pixel-font);
 }
 
 .nav {
@@ -54,7 +54,7 @@
 /* Active link */
 .active-link,
 .nav__link:hover {
-    color: var(--title-color-dark);
+    color: var(--hover-pixel);
 }
 
 /*Responsive*/

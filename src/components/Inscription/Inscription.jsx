@@ -3,6 +3,7 @@ import { TextField } from '@mui/material';
 
 import Button from '@mui/material/Button';
 import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 
 import { getInputValue } from '../../store/actions/signUpAction';
 
@@ -40,7 +41,7 @@ const handleChange = (event) => {
       <Button variant="contained" color="success"> Valider </Button>
        
     </form>
-    
+    <Footer />
     </>
   );
 }
