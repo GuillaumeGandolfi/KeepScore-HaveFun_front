@@ -1,5 +1,5 @@
 /*Google Fonts*/
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;0,900;0,1000;1,200;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=DotGothic16&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=DotGothic16&display=swap');
 
 /*Variables css*/
 :root {
@@ -16,7 +16,8 @@
     /*Fonts & Typos*/
 
     /*Fonts*/
-    --body-font: "Nunito", sans-serif;
+    --body-font: "Poppins", sans-serif;
+    --pixel-font: "DotGothic16", sans-serif;
 
     /*Weight*/
     --font-normal: 400;
@@ -111,7 +112,7 @@ img {
 
 /*Layout*/
 .container {
-    max-width: 968px;
+    max-width: 80vw;
     margin-left: auto;
     margin-right: auto;
 }

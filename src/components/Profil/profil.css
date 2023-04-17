@@ -1,0 +1,44 @@
+
+
+.profil-page-container {
+   width: 100vw;
+   font-family:var(--pixel-font) ;
+}
+
+.profil-container{
+    margin: 5%;
+    font-size: 5rem;
+    height: 70%;
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow:visible;
+}
+
+.profil{
+    border: 1px solid gray;
+    width: 150%;
+    margin: auto;
+}
+.profil:hover{
+    border: 2px solid green;
+    width: 152%;
+    height: 102%;
+    margin:1% auto;
+    background-color: aquamarine;
+    transition: 0.9s all ease-in-out; 
+}
+.modifiable:hover::before{
+    content:url('../../assets/icons/history_edu_black_48dp.svg');  
+}
+.modifiable:hover{
+    background-color: orange;
+    transition: 0.9s all ease-in-out;
+}
+
+
+.hidden{
+    display: none;
+}

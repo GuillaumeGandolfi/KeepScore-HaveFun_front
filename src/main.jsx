@@ -8,6 +8,7 @@ import './styles/reset.css'
 import './styles/index.css'
 import ConnectionForm from './components/ConnectionForm/ConnectionForm';
 import Inscription from './components/Inscription/Inscription';
+import Profil from './components/Profil/Profil';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
 {
   path:'/signup',
   element:<Inscription />
+},
+{
+  path:'/profil/1',
+  element:<Profil />
 }
 ])
 
