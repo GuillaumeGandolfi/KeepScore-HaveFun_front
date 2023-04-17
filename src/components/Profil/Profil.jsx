@@ -1,6 +1,9 @@
 import { useSelector } from 'react-redux'
 import  Header from '../Header/Header'
 import  Footer  from '../Footer/Footer'
+import pince from '../../assets/profil/pince-transformed.png'
+
+
 import './profil.css'
 
 const Profil = () => {
@@ -13,15 +16,20 @@ const Profil = () => {
         <Header />
         <div className="profil-container">  
             <div className="profil-display-container">
+                <div className="profil-header">
+                    <div className="profil-picture">
+                        <img src={pince} alt="" />
+                    </div>
+                </div>
                
-               <div className="profil firstname">
+               <div className="profil profil-modifiable firstname">
                <p className='modifiable'>Prénom : {firstname}</p>
                <form className='hidden' >
                 <input type="text" className='midify-profil-firstame' />
                </form>
                </div>
 
-               <div className="profil lastname">
+               <div className="profil profil-modifiable lastname">
                 <p className='modifiable'>Nom : {lastname}</p>
                 <form className='hidden' >
                     <input type="text" className='modify-profil-firstname' />

@@ -1,7 +1,7 @@
 
 
 .profil-page-container {
-   width: 100vw;
+   width: 100%;
    font-family:var(--pixel-font) ;
 }
 
@@ -13,14 +13,24 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-wrap: nowrap;
-    overflow:visible;
+    
+}
+.profil-picture {
+    background-image: url('../../assets/profil/polaroidFrame-transformed.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 250px;
+    height: 250px;
 }
 
 .profil{
     border: 1px solid gray;
     width: 150%;
     margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 .profil:hover{
     border: 2px solid green;
@@ -33,12 +43,17 @@
 .modifiable:hover::before{
     content:url('../../assets/icons/history_edu_black_48dp.svg');  
 }
-.modifiable:hover{
+
+.profil-modifiable:hover{
     background-color: orange;
     transition: 0.9s all ease-in-out;
 }
 
-
 .hidden{
     display: none;
+}
+
+img{
+    width:75%;
+    height: 75%;
 }
