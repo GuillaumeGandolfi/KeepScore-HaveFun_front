@@ -1,3 +1,5 @@
+import testData from '../testData/testData.json'
+
 import {
   CHANGE_EMAIL_FIELD,
   CHANGE_PASSWORD_FIELD,
@@ -16,6 +18,7 @@ const initialState = {
   signUpEmailField: "",
   signUpPasswordField: "",
   isHidden : true,
+  profil: testData[0]
 };
 
 const reducer = (state = initialState, action = {}) => {

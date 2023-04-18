@@ -45,12 +45,12 @@
     backface-visibility: hidden;
   }
   .heads {
-    background: url('../../assets/logoPurse.jpg');
+    background: url('../../assets/logoWallet.jpg');
     z-index: 2;
     transform: rotateY(0deg);
   }
   .tails {
-    background: url('../../assets/logoPurse.jpg');
+    background: url('../../assets/logoWallet.jpg');
     z-index: 1;
     transform: rotateY(180deg);
   }

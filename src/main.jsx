@@ -9,6 +9,7 @@ import './styles/index.css'
 import ConnectionForm from './components/ConnectionForm/ConnectionForm';
 import Inscription from './components/Inscription/Inscription';
 import Homepage from './components/Homepage/Homepage';
+import Profil from './components/Profil/Profil';
 
 const router = createBrowserRouter([
 {
@@ -24,8 +25,12 @@ const router = createBrowserRouter([
   element:<Inscription />
 },
 {
-  path:'/homepage',
-  element:<Homepage />
+  path: '/homepage',
+  element: <Homepage/>
+},
+{
+   path:'/profil/1',
+   element:<Profil />
 }
 ])
 
