@@ -11,8 +11,8 @@ import { TOGGLE_HEADER } from '../store/actions/headerAction'
 
 const initialState = {
   isLogged: false,
-  emailField: "",
-  passwordField: "",
+  email: "",
+  password: "",
   firstname: "",
   lastname: "",
   signUpEmailField: "",
@@ -28,9 +28,9 @@ const reducer = (state = initialState, action = {}) => {
     case GET_INPUT_VALUE:
       return { ...state, [action.name]: action.value };
     case CHANGE_EMAIL_FIELD:
-      return { ...state, emailField: action.input };
+      return { ...state, email: action.input };
     case CHANGE_PASSWORD_FIELD:
-      return { ...state, passwordField: action.input };
+      return { ...state, password: action.input };
     default:
       return state;
   }
