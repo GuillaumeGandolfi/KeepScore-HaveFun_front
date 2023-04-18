@@ -61,6 +61,7 @@
 /*Medium devices*/
 @media screen and (max-width: 768px) {
     .header {
+        position: fixed;
         top: initial;
         bottom: 0;
     }
@@ -120,6 +121,8 @@
         display: block;
     }
 }
+
+
 
 /*Small devices*/
 @media screen and (max-width: 350px) {

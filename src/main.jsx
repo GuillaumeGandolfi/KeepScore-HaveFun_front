@@ -8,9 +8,10 @@ import './styles/reset.css'
 import './styles/index.css'
 import ConnectionForm from './components/ConnectionForm/ConnectionForm';
 import Inscription from './components/Inscription/Inscription';
+import Homepage from './components/Homepage/Homepage';
 
 const router = createBrowserRouter([
-  {
+{
   path: '/',
   element: <App />
 },
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
 {
   path:'/signup',
   element:<Inscription />
+},
+{
+  path:'/homepage',
+  element:<Homepage />
 }
 ])
 
