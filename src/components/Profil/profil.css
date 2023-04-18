@@ -32,6 +32,16 @@
     align-items: center;
     justify-content: center;
 }
+
+.profil-header{
+    display: flex;
+    flex-direction: row;
+}
+
+.profil-header>p{
+    margin-top: 10%;
+}
+
 .profil:hover{
     border: 2px solid green;
     width: 152%;
@@ -49,11 +59,17 @@
     transition: 0.9s all ease-in-out;
 }
 
+.wallet-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 3%;
+}
+
 .hidden{
     display: none;
 }
 
-img{
+.profil-picture>img{
     width:75%;
     height: 75%;
 }

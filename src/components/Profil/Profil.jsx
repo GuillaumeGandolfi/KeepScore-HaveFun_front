@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux'
 import  Header from '../Header/Header'
 import  Footer  from '../Footer/Footer'
+import ProgressBar from '../ProgressBar/ProgressBar'
 import pince from '../../assets/profil/pince-transformed.png'
 
 
@@ -18,8 +19,9 @@ const Profil = () => {
             <div className="profil-display-container">
                 <div className="profil-header">
                     <div className="profil-picture">
-                        <img src={pince} alt="" />
+                        <img src={pince} alt="pince" />
                     </div>
+                    <p>Famille : {familly}</p>
                 </div>
                
                <div className="profil profil-modifiable firstname">
@@ -48,9 +50,10 @@ const Profil = () => {
                         <p>Amis :{friend} </p>
                     })}
                 </div>
-
-                <p>famille : {familly}</p>
-                <p>Porte-Feuille : {wallet}</p>
+                <div className="wallet-container">
+                    <p>Porte-Feuille : {wallet}</p>
+                    <ProgressBar progress={30}/>
+                </div>
                 <p>Collection : </p>
                 <p>Quêtes : </p>
             </div>

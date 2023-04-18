@@ -26,8 +26,8 @@ const ConnectionForm = () => {
   return (
       <>
     <div className="formContainer">
-    <img src={Logo__3} alt="a colorfull game controller" />
-      <p>Keep Score & Have Fun</p>
+    <img className="connectionFormLogo" src={Logo__3} alt="a colorfull game controller" />
+      <p className="connection-brand">Keep Score & Have Fun</p>
     <form className="connectionForm">
 
       <TextField
