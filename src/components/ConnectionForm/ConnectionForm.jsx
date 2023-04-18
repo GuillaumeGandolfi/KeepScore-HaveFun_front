@@ -9,7 +9,7 @@ import Logo__3 from '../../assets/Logo__3.png'
 
 import './connectionForm.css'
 import Footer from "../Footer/Footer.jsx";
-import { login } from "../../store/actions/authAction";
+import { submitLogin } from "../../store/actions/authAction";
 
 const ConnectionForm = () => {
   const { email, password } = useSelector((state) => state);
@@ -26,7 +26,7 @@ const ConnectionForm = () => {
 
   const handleSubmit = (event) =>{
     event.preventDefault()
-    dispatch(login(email,password))
+    return dispatch(submitLogin(email,password))
   }
   
   return (
