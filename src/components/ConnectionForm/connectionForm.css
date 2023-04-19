@@ -4,18 +4,18 @@
     align-items: center;
 }
 
-form{
+.connectionForm{
     display: flex;
     flex-direction: column;
 
 }
 
-img {
+.connectionFormLogo {
     width: 30%;
     height: 30%;
 }
 
-p {
+.connectionBrand {
     margin-bottom: 3rem;
     font-family: var(--pixel-font);
     font-size: var(--h1-font-size);

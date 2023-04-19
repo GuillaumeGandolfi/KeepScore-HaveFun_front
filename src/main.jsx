@@ -10,20 +10,19 @@ import ConnectionForm from './components/ConnectionForm/ConnectionForm';
 import Inscription from './components/Inscription/Inscription';
 import LandingPage from './components/pages/LandingPage/landingPage';
 
-
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <LandingPage />
-  },
-  {
-    path: '/signin',
-    element: <ConnectionForm />
-  },
-  {
-    path: '/signup',
-    element: <Inscription />
-  },
+  path: '/',
+  element: <LandingPage/>
+},
+{
+  path:'/signin',
+  element: <ConnectionForm />
+},
+{
+  path:'/signup',
+  element:<Inscription />
+}
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

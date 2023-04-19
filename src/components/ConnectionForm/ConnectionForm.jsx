@@ -9,45 +9,51 @@ import Logo__3 from '../../assets/Logo__3.png'
 
 import './connectionForm.css'
 import Footer from "../Footer/Footer.jsx";
+import { submitLogin } from "../../store/actions/authAction";
 
 const ConnectionForm = () => {
-  const { emailField, passwordField } = useSelector((state) => state);
+  const { email, password } = useSelector((state) => state);
   const dispatch = useDispatch();
   const handleChange = (event) => {
     switch (event.target.id) {
-      case "emailField":
+      case "email":
         return dispatch(changeEmailField(event.target.value));
-      case "passwordField":
+      case "password":
         return dispatch(changePasswordField(event.target.value));
       default:
     }
   };
+
+  const handleSubmit = (event) =>{
+    event.preventDefault()
+    return dispatch(submitLogin(email,password))
+  }
   
   return (
       <>
     <div className="formContainer">
-    <img src={Logo__3} alt="a purse smiling full of dollar bills" />
-      <p>Keep Score & Have Fun</p>
-    <form className="connectionForm">
+    <img className="connectionFormLogo" src={Logo__3} alt="a colorfull game controller" />
+      <p className="connection-brand">Keep Score & Have Fun</p>
+    <form method="POST" onSubmit={handleSubmit} className="connectionForm">
 
       <TextField
         onChange={handleChange}
-        value={emailField}
-        id="emailField"
+        value={email}
+        id="email"
         label="email"
         variant="outlined"
       />
 
       <TextField
         onChange={handleChange}
-        value={passwordField}
+        value={password}
         type="password"
-        id="passwordField"
+        id="password"
         label="password"
         variant="outlined"
       />
 
-      <Button variant="contained">Connexion</Button>
+      <Button type="submit" variant="contained">Connexion</Button>
     </form>
 
     </div>

@@ -1,6 +1,9 @@
 .footer {
     background-color: var(--container-color);
     border-top: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer__container {
@@ -65,9 +68,20 @@
 /*BREAKPOINTS*/
 /*Large devices*/
 @media screen and (max-width: 992px) {
+    .footer {
+        position: fixed;
+    }
+
     .footer__social-link {
         padding: 0.25rem;
         border-radius: 0.25rem;
         font-size: 1rem;
+    }
+}
+
+/*Medium devices*/
+@media screen and (max-width: 768px) {
+    .footer {
+        display: none;
     }
 }
