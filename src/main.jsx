@@ -8,7 +8,7 @@ import './styles/reset.css'
 import './styles/index.css'
 import ConnectionForm from './components/ConnectionForm/ConnectionForm';
 import Inscription from './components/Inscription/Inscription';
-import LandingPage from './components/pages/LandingPage/landingPage';
+import Landing from './components/pages/LandingPage/landingPage';
 
 const router = createBrowserRouter([
   {
