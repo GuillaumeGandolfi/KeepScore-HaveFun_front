@@ -13,7 +13,7 @@ import LandingPage from './components/pages/LandingPage/landingPage';
 const router = createBrowserRouter([
   {
   path: '/',
-  element: <LandingPage/>
+  element: <Landing/>
 },
 {
   path:'/signin',
