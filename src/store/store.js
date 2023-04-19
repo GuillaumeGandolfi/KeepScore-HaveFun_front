@@ -6,5 +6,5 @@ import authMiddleware from '../middlewares/authenticationMiddleware'
 
 export default configureStore({
   reducer,
-  middleware: [authMiddleware],
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(authMiddleware),
 })

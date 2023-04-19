@@ -9,6 +9,9 @@ import './styles/index.css'
 import ConnectionForm from './components/ConnectionForm/ConnectionForm';
 import Inscription from './components/Inscription/Inscription';
 import Landing from './components/pages/LandingPage/landingPage';
+import Homepage from './components/Homepage/Homepage';
+import Profil from './components/Profil/Profil'
+
 
 const router = createBrowserRouter([
   {
@@ -22,7 +25,16 @@ const router = createBrowserRouter([
 {
   path:'/signup',
   element:<Inscription />
+},
+{
+  path:'/homepage',
+  element: <Homepage />
+},
+{
+  path:'/profil/1',
+  element: <Profil />
 }
+
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -33,3 +45,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Provider>
   </React.StrictMode>,
 )
+
+

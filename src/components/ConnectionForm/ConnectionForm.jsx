@@ -10,9 +10,10 @@ import Logo__3 from '../../assets/Logo__3.png'
 import './connectionForm.css'
 import Footer from "../Footer/Footer.jsx";
 import { submitLogin } from "../../store/actions/authAction";
+import { Navigate } from "react-router-dom";
 
 const ConnectionForm = () => {
-  const { email, password } = useSelector((state) => state);
+  const { email, password, isLogged } = useSelector((state) => state);
   const dispatch = useDispatch();
   const handleChange = (event) => {
     switch (event.target.id) {
@@ -31,6 +32,7 @@ const ConnectionForm = () => {
   
   return (
       <>
+      {isLogged && <Navigate to={'/homepage'} replace={true} />}
     <div className="formContainer">
     <img className="connectionFormLogo" src={Logo__3} alt="a colorfull game controller" />
       <p className="connection-brand">Keep Score & Have Fun</p>

@@ -4,7 +4,7 @@ import { TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
-import Style from './inscription.css'
+import  './inscription.css'
 
 import { getInputValue } from '../../store/actions/signUpAction';
 
