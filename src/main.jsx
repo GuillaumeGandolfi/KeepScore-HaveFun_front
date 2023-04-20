@@ -11,6 +11,7 @@ import Inscription from './components/Inscription/Inscription';
 import Landing from './components/pages/LandingPage/landingPage';
 import Homepage from './components/Homepage/Homepage';
 import Profil from './components/Profil/Profil'
+import Transaction from './components/Transaction/Transaction';
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
 {
   path:'/profil/1',
   element: <Profil />
+},
+{
+  path:'transaction',
+  element: <Transaction />
 }
 
 ])
