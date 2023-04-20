@@ -8,13 +8,15 @@ import './styles/reset.css'
 import './styles/index.css'
 import ConnectionForm from './components/ConnectionForm/ConnectionForm';
 import Inscription from './components/Inscription/Inscription';
+import Landing from './components/pages/LandingPage/landingPage';
 import Homepage from './components/Homepage/Homepage';
-import Profil from './components/Profil/Profil';
+import Profil from './components/Profil/Profil'
+
 
 const router = createBrowserRouter([
-{
+  {
   path: '/',
-  element: <App />
+  element: <Landing/>
 },
 {
   path:'/signin',
@@ -25,19 +27,23 @@ const router = createBrowserRouter([
   element:<Inscription />
 },
 {
-  path: '/homepage',
-  element: <Homepage/>
+  path:'/homepage',
+  element: <Homepage />
 },
 {
-   path:'/profil/1',
-   element:<Profil />
+  path:'/profil/1',
+  element: <Profil />
 }
+
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store} >
-     <RouterProvider router={router} />
+      <RouterProvider router={router} />
+
     </Provider>
   </React.StrictMode>,
 )
+
+

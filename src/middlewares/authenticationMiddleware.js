@@ -7,13 +7,14 @@ const authMiddleware = (store) => (next) => (action) => {
     case SUBMIT_LOGIN:
       const { email, password } = store.getState();
       axios
-        .post("http://localhost:3001/login", {
+        .post("http://localhost:3000/login", {
           email,
           password,
         })
         .then((response) => {
-          const { pseudo } = response.data;
-          store.dispatch(saveSuccessfulAuth(pseudo));
+          const { data } = response;
+          console.log(data)
+          store.dispatch(saveSuccessfulAuth(data));
         })
         .catch((error) => {
           console.log(error);

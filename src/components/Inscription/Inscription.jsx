@@ -4,6 +4,7 @@ import { TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
+import  './inscription.css'
 
 import { getInputValue } from '../../store/actions/signUpAction';
 
@@ -32,12 +33,15 @@ const handleChange = (event) => {
 
     <>
     <Header />
-    <form onSubmit={handleSubmit}>
+    <form className="inputForm"onSubmit={handleSubmit}>
       
       <TextField onChange={handleChange} value={lastname} id="lastname" label="Nom" variant="outlined" />
       <TextField onChange={handleChange}value={firstname} id="firstname" label="Prenom" variant="outlined" />
       <TextField onChange={handleChange} value ={signUpEmailField} id="signUpEmailField" label="Email" variant="outlined" />
       <TextField onChange={handleChange} value={signUpPasswordField} id="signUpPasswordField" label="Mot de passe" variant="outlined" />
+      
+
+    
       <Button variant="contained" color="success"> Valider </Button>
        
     </form>
