@@ -42,7 +42,7 @@ const Header = () => {
                         </li>
 
                         <li className="nav__item">
-                            <NavLink to="/magasin" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><MonetizationOnIcon /></div>Magasin</NavLink>
+                            <NavLink to="/shop" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><MonetizationOnIcon /></div>Magasin</NavLink>
                         </li>
 
                         <li className="nav__item">
@@ -50,7 +50,7 @@ const Header = () => {
                         </li>
 
                         <li className="nav__item">
-                            <NavLink to="/amis" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><Diversity2Icon /></div>Amis</NavLink>
+                            <NavLink to="/friends" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><Diversity2Icon /></div>Amis</NavLink>
                         </li>
 
                         <li className="nav__item">

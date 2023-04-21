@@ -4,11 +4,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import './homepage.css'
 
 // Import des components Header & Footer
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import Header from '../../Header/Header'
+import Footer from '../../Footer/Footer'
 
 // Import svg - la main à côté du pseudo
-import Hand from '../../assets/icons/home__hand.svg'
+import Hand from '../../../assets/icons/home__hand.svg'
 
 // Imports pour utiliser ChartJS en react avec le composant Doughnut
 import { Chart as ChartJS } from 'chart.js/auto'
