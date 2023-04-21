@@ -30,6 +30,7 @@
     width: 80%;
     height: 80%;
     margin-left: auto;
+    margin-bottom: 8rem;
 }
 
 button {
@@ -82,7 +83,7 @@ h2 {
 
 .homepage__expenses-link {
     margin-top: 1.6rem;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
     font-size: 0.9rem;
     color: var(--text-color);
 }

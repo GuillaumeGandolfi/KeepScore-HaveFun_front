@@ -12,7 +12,7 @@ import Landing from './components/pages/LandingPage/landingPage';
 import Homepage from './components/Homepage/Homepage';
 import Profil from './components/Profil/Profil'
 import Transaction from './components/Transaction/Transaction';
-
+import Budgetpage from './components/Budgetpage/Budgetpage'
 
 const router = createBrowserRouter([
   {
@@ -38,8 +38,11 @@ const router = createBrowserRouter([
 {
   path:'transaction',
   element: <Transaction />
+},
+{
+  path: '/budget',
+  element: <Budgetpage />
 }
-
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

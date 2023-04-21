@@ -10,6 +10,7 @@ import NewspaperIcon from '@mui/icons-material/Newspaper';
 import Diversity2Icon from '@mui/icons-material/Diversity2';
 import GroupWorkIcon from '@mui/icons-material/GroupWork';
 import EmailIcon from '@mui/icons-material/Email';
+import SavingsIcon from '@mui/icons-material/Savings';
 import { toggleHeader } from "../../store/actions/headerAction";
 
 
@@ -28,7 +29,11 @@ const Header = () => {
                 <div className={!isHidden ? "nav__menu show-menu" : "nav__menu"}>
                     <ul className="nav__list grid">
                         <li className="nav__item">
-                            <a href="#accueil" className="nav__link"><div className="nav__icon"><HomeIcon /></div>Accueil</a>
+                            <a href="/homepage" className="nav__link"><div className="nav__icon"><HomeIcon /></div>Accueil</a>
+                        </li>
+
+                        <li className="nav__item">
+                            <a href="/budget" className="nav__link"><div className="nav__icon"><SavingsIcon /></div>Budget</a>
                         </li>
 
                         <li className="nav__item">
@@ -48,7 +53,7 @@ const Header = () => {
                         </li>
 
                         <li className="nav__item">
-                            <a href="#profil" className="nav__link"><div className="nav__icon"><PersonOutlineIcon /></div>Profil</a>
+                            <a href="/profil/1" className="nav__link"><div className="nav__icon"><PersonOutlineIcon /></div>Profil</a>
                         </li>
 
                         <li className="nav__item">

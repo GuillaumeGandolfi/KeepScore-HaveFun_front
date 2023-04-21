@@ -132,7 +132,7 @@ const Homepage = () => {
                         <div className="homepage__sidequest">
                             <h2 className="homepage__expenses-title">Quête secondaire suivie</h2>
                             <p>Aller au cinéma sans acheter du popcorn</p>
-                            <button className="homepage__expenses-link">Voir toutes les quêtes</button>
+                            <button className="homepage__expenses-link">Journal de quêtes</button>
                         </div>
                     </div>
                 </div>
