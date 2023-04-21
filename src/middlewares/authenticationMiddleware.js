@@ -20,7 +20,6 @@ const authMiddleware = (store) => (next) => (action) => {
           const session = {token, refreshToken};
           localStorage.setItem("session", JSON.stringify(session));
           localStorage.setItem("user", user);
-          console.log(localStorage.getItem("user"))
           store.dispatch(saveSuccessfulAuth(user));
         })
         .catch((error) => {
