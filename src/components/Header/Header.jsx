@@ -1,4 +1,5 @@
 
+import { NavLink } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux";
 import './header.css'
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
@@ -29,35 +30,35 @@ const Header = () => {
                 <div className={!isHidden ? "nav__menu show-menu" : "nav__menu"}>
                     <ul className="nav__list grid">
                         <li className="nav__item">
-                            <a href="/homepage" className="nav__link"><div className="nav__icon"><HomeIcon /></div>Accueil</a>
+                            <NavLink to="/homepage" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><HomeIcon /></div>Accueil</NavLink>
                         </li>
 
                         <li className="nav__item">
-                            <a href="/budget" className="nav__link"><div className="nav__icon"><SavingsIcon /></div>Budget</a>
+                            <NavLink to="/budget" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><SavingsIcon /></div>Budget</NavLink>
                         </li>
 
                         <li className="nav__item">
-                            <a href="#profil" className="nav__link"><div className="nav__icon"><NewspaperIcon /></div>Quêtes</a>
+                            <NavLink to="#profil" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><NewspaperIcon /></div>Quêtes</NavLink>
                         </li>
 
                         <li className="nav__item">
-                            <a href="#magasin" className="nav__link"><div className="nav__icon"><MonetizationOnIcon /></div>Magasin</a>
+                            <NavLink to="#magasin" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><MonetizationOnIcon /></div>Magasin</NavLink>
                         </li>
 
                         <li className="nav__item">
-                            <a href="#guilde" className="nav__link"><div className="nav__icon"><GroupWorkIcon /></div>Guilde</a>
+                            <NavLink to="#guilde" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><GroupWorkIcon /></div>Guilde</NavLink>
                         </li>
 
                         <li className="nav__item">
-                            <a href="#amis" className="nav__link"><div className="nav__icon"><Diversity2Icon /></div>Amis</a>
+                            <NavLink to="#amis" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><Diversity2Icon /></div>Amis</NavLink>
                         </li>
 
                         <li className="nav__item">
-                            <a href="/profil/1" className="nav__link"><div className="nav__icon"><PersonOutlineIcon /></div>Profil</a>
+                            <NavLink to="/profil/1" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><PersonOutlineIcon /></div>Profil</NavLink>
                         </li>
 
                         <li className="nav__item">
-                            <a href="#contact" className="nav__link"><div className="nav__icon"><EmailIcon /></div>Contact</a>
+                            <NavLink to="#contact" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><EmailIcon /></div>Contact</NavLink>
                         </li>
                     </ul>
 

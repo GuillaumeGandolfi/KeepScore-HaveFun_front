@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import React from "react";
 import "./footer.css";
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -12,15 +13,15 @@ const Footer = () => {
                 <h1 className="footer__title">Keep Score & Have Fun</h1>
                     <ul className="footer__list">
                         <li>
-                            <a href="#accueil" className="footer__link">Accueil</a>
+                            <NavLink to="/homepage" className="footer__link">Accueil</NavLink>
                         </li>
 
                         <li>
-                            <a href="#aboutus" className="footer__link">A propos</a>
+                            <NavLink to="#aboutus" className="footer__link">A propos</NavLink>
                         </li>
 
                         <li>
-                            <a href="#contact" className="footer__link">Contact</a>
+                            <NavLink to="#contact" className="footer__link">Contact</NavLink>
                         </li>
                     </ul>
 

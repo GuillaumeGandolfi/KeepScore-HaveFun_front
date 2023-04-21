@@ -3,11 +3,12 @@
 .profil-page-container {
    width: 100%;
    font-family:var(--pixel-font) ;
+    margin-top: 6rem;
 }
 
 .profil-container{
     margin: 5%;
-    font-size: 5rem;
+    font-size: 2rem;
     height: 70%;
     display : flex;
     flex-direction: column;
