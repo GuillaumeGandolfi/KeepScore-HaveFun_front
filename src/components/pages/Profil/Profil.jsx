@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux'
-import  Header from '../Header/Header'
-import  Footer  from '../Footer/Footer'
-import ProgressBar from '../ProgressBar/ProgressBar'
-import pince from '../../assets/profil/pince-transformed.png'
+import Header from '../../Header/Header'
+import Footer from '../../Footer/Footer'
+import ProgressBar from '../../ProgressBar/ProgressBar'
+import pince from '../../../assets/profil/pince-transformed.png'
 
 
 import './profil.css'

@@ -10,7 +10,7 @@ import ConnectionForm from './components/ConnectionForm/ConnectionForm';
 import Inscription from './components/Inscription/Inscription';
 import Landing from './components/pages/LandingPage/landingPage';
 import Homepage from './components/pages/Homepage/Homepage';
-import Profil from './components/Profil/Profil'
+import Profil from './components/pages/Profil/Profil'
 import Transaction from './components/Transaction/Transaction';
 import Budgetpage from './components/pages/Budgetpage/Budgetpage'
 import Questspage from "./components/pages/Questspage/Questspage";
