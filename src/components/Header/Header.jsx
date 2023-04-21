@@ -38,19 +38,19 @@ const Header = () => {
                         </li>
 
                         <li className="nav__item">
-                            <NavLink to="#profil" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><NewspaperIcon /></div>Quêtes</NavLink>
+                            <NavLink to="/quests" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><NewspaperIcon /></div>Quêtes</NavLink>
                         </li>
 
                         <li className="nav__item">
-                            <NavLink to="#magasin" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><MonetizationOnIcon /></div>Magasin</NavLink>
+                            <NavLink to="/magasin" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><MonetizationOnIcon /></div>Magasin</NavLink>
                         </li>
 
                         <li className="nav__item">
-                            <NavLink to="#guilde" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><GroupWorkIcon /></div>Guilde</NavLink>
+                            <NavLink to="/guilde" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><GroupWorkIcon /></div>Guilde</NavLink>
                         </li>
 
                         <li className="nav__item">
-                            <NavLink to="#amis" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><Diversity2Icon /></div>Amis</NavLink>
+                            <NavLink to="/amis" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><Diversity2Icon /></div>Amis</NavLink>
                         </li>
 
                         <li className="nav__item">
@@ -58,7 +58,7 @@ const Header = () => {
                         </li>
 
                         <li className="nav__item">
-                            <NavLink to="#contact" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><EmailIcon /></div>Contact</NavLink>
+                            <NavLink to="/contact" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><EmailIcon /></div>Contact</NavLink>
                         </li>
                     </ul>
 
