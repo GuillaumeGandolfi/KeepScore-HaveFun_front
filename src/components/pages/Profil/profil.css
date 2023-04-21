@@ -17,7 +17,7 @@
     
 }
 .profil-picture {
-    background-image: url('../../assets/profil/polaroidFrame-transformed.png');
+    background-image: url('../../../assets/profil/polaroidFrame-transformed.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 250px;
