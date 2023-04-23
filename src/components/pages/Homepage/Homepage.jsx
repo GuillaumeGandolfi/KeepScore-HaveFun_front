@@ -14,7 +14,18 @@ import Hand from '../../../assets/icons/home__hand.svg'
 import { Chart as ChartJS } from 'chart.js/auto'
 import { Doughnut } from 'react-chartjs-2';
 
-// Données de démonstration
+
+
+const Homepage = () => {
+    // état pour stocker les données de chart actuellement affichées
+
+    const user = localStorage.getItem('user');
+    const { id,  family, email, firstname, lastname, level, wallet,operations, friends, quests  } = JSON.parse(user)
+    const items = user.items_collection;
+    const expenses = operations.reduce((accumulator, operations) => accumulator + operations.operation, 0 ) || 0
+    console.log(expenses)
+
+    // Données de démonstration
 const dailyData = {
     labels: ['Alimentation', 'Transport', 'Loisirs'],
     datasets: [{
@@ -51,8 +62,10 @@ const yearlyData = {
     }]
 };
 
-const Homepage = () => {
-    // état pour stocker les données de chart actuellement affichées
+    // {"id":6,"email":"john@johndoe.com","firstname":"john","lastname":"doe","password":"","level":1,"wallet":50,"created_at":"2023-04-23T16:12:47.765Z","updated_at":null,"family_id":1,"operations":[],"family":{"id":1,"name":"teamdevback","level":1,"created_at":"2023-04-23T16:12:47.765Z","updated_at":null},"friends":[],"quests":[],"items_collection":[]}
+  
+    
+
     const [chartData, setChartData] = useState(dailyData);
 
     const typedRef = useRef(null);
@@ -99,7 +112,7 @@ const Homepage = () => {
             <Header />
 
             <h1 className="home__title">
-                Hello Abdelaziz
+                Hello {firstname}
                 <img src={Hand} alt="handtosayhello" />
 
             </h1>
@@ -113,7 +126,7 @@ const Homepage = () => {
 
                         <div className="homepage__expenses">
                             <h2 className="homepage__expenses-title">Dépenses</h2>
-                            <h3 className="homepage__expenses-current">1000 sur 1200 €</h3>
+                            <h3 className="homepage__expenses-current">{expenses} sur {wallet} €</h3>
                         </div>
 
                         <div className="homepage__budget">

@@ -8,7 +8,12 @@ import pince from '../../../assets/profil/pince-transformed.png'
 import './profil.css'
 
 const Profil = () => {
-    const {firstname, lastname, email, level, friends, familly, wallet, collection, quest} = useSelector(state => state.profil)
+    const user = localStorage.getItem('user');
+    const { id,  family, email, firstname, lastname, level, wallet,operations, friends, quests  } = JSON.parse(user)
+    const items = user.items_collection;
+    const expenses = operations.reduce((accumulator, operations) => accumulator + operations.operation, 0 ) || 0
+    console.log(expenses)
+    const progressRate = expenses/wallet*100 || 100
 
 
     return (
@@ -21,7 +26,7 @@ const Profil = () => {
                     <div className="profil-picture">
                         <img src={pince} alt="pince" />
                     </div>
-                    <p>Famille : {familly}</p>
+                    <p>Famille : {family?.name}</p>
                 </div>
                
                <div className="profil profil-modifiable firstname">
@@ -52,7 +57,7 @@ const Profil = () => {
                 </div>
                 <div className="wallet-container">
                     <p>Porte-Feuille : {wallet}</p>
-                    <ProgressBar progress={30}/>
+                    <ProgressBar progress={progressRate}/>
                 </div>
                 <p>Collection : </p>
                 <p>Quêtes : </p>
