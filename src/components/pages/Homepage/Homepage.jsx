@@ -1,5 +1,6 @@
 // Import React + css
 import Typed from 'typed.js';
+import { NavLink } from "react-router-dom"
 import React, { useState, useRef, useEffect } from 'react';
 import './homepage.css'
 

@@ -4,25 +4,44 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from 'react-redux'
 import App from './App'
 import store from './store/store'
+
+// Import des css
 import './styles/reset.css'
 import './styles/index.css'
+
 import ConnectionForm from './components/ConnectionForm/ConnectionForm';
 import Inscription from './components/Inscription/Inscription';
+import Profil from './components/pages/Profil/Profil';
+import Transaction from './components/Transaction/Transaction';
+
+// Import de librairies
+
+
+// Import Actions
+import { logoutAction } from "./components/pages/Budgetpage/actions/logout";
+import { deleteBudget } from "./components/pages/Budgetpage/actions/deleteBudget.js";
+
+// Import des pages
+import Main, {mainLoader} from "./components/pages/Budgetpage/layouts/Main.jsx";
+import Dashboard, {dashBoardAction, dashboardLoader} from './components/pages/Budgetpage/pages/Dashboard.jsx'
 import Landing from './components/pages/LandingPage/landingPage';
 import Homepage from './components/pages/Homepage/Homepage';
-import Profil from './components/pages/Profil/Profil'
-import Transaction from './components/Transaction/Transaction';
-import Budgetpage from './components/pages/Budgetpage/Budgetpage'
 import Questspage from "./components/pages/Questspage/Questspage";
 import Contactpage from "./components/pages/Contactpage/Contactpage";
 import Friendspage from "./components/pages/Friendspage/Friendspage";
 import Guildepage from "./components/pages/Guildepage/Guildepage";
 import Shoppage from "./components/pages/Shoppage/Shoppage";
+import Error from "./components/pages/Error/Error";
+import Errordashboard from "./components/pages/Budgetpage/pages/Errordashboard.jsx";
+import ExpensesPage, {expensesAction, expensesLoader} from "./components/pages/Budgetpage/pages/ExpensesPage.jsx";
+import BudgetPage, {budgetAction, budgetLoader} from "./components/pages/Budgetpage/pages/BudgetPage.jsx";
+
 
 const router = createBrowserRouter([
   {
   path: '/',
-  element: <Landing/>
+  element: <Landing/>,
+  errorElement: <Error />
 },
 {
   path:'/signin',
@@ -46,7 +65,38 @@ const router = createBrowserRouter([
 },
 {
   path: '/budget',
-  element: <Budgetpage />
+  element: <Main />,
+  loader: mainLoader,
+  errorElement: <Errordashboard />,
+  children: [
+    {
+      index: true,
+      element: <Dashboard />,
+      loader: dashboardLoader,
+      action: dashBoardAction,
+      errorElement: <Errordashboard />
+    },
+    {
+      path: "/budget/:id",
+      element: <BudgetPage />,
+      loader: budgetLoader,
+      action: budgetAction,
+      errorElement: <Errordashboard />,
+      children: [
+        {
+          path: "delete",
+           action: deleteBudget,
+        }
+      ]
+    },
+    {
+      path: "expenses",
+      element: <ExpensesPage />,
+      loader: expensesLoader,
+      action: expensesAction,
+      errorElement: <Errordashboard />,
+    },
+  ]
 },
 {
   path: '/quests',
@@ -74,7 +124,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store} >
       <RouterProvider router={router} />
-
     </Provider>
   </React.StrictMode>,
 )
