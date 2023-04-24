@@ -10,12 +10,8 @@ import { getInputValue } from '../../store/actions/signUpAction';
 
 
 function Inscription() {
-  const {firstname, lastname, signUpEmailField, signUpPasswordField} = useSelector(state => state)
+  const {firstname, lastname, signUpEmailField, signUpPasswordField} = useSelector(state => state.signup)
   const dispatch = useDispatch()
-  // const [nom, setNom] = useState('');
-  // const [prenom, setPrenom] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [motdepasse, setMotdepasse] = useState('');
 
 const handleChange = (event) => {
   dispatch(getInputValue(event.target.id, event.target.value))

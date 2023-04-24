@@ -1,4 +1,8 @@
-
+.Box {
+    background-image: url('../../../assets/pixBackground.gif');
+    background-size: cover;
+    
+}
 
 .text{
     

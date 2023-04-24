@@ -16,7 +16,7 @@ import { toggleHeader } from "../../store/actions/headerAction";
 
 
 const Header = () => {
-    const { isHidden } = useSelector(state => state)
+    const { isHidden } = useSelector(state => state.utils)
     const dispatch = useDispatch()
     const handleClick = () => {
         dispatch(toggleHeader())

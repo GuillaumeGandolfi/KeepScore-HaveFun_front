@@ -1,6 +1,7 @@
 // Import React + css
 import Typed from 'typed.js';
 import React, { useState, useRef, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import './homepage.css'
 
 // Import des components Header & Footer
@@ -20,14 +21,15 @@ const Homepage = () => {
     // état pour stocker les données de chart actuellement affichées
 
     const user = localStorage.getItem('user');
-    const { id,  family, email, firstname, lastname, level, wallet,operations, friends, quests  } = JSON.parse(user)
+    const { id,  family, email, firstname, lastname, level, wallet,operations, friends, quests  } = useSelector(state => state.user)
     const items = user.items_collection;
     const expenses = operations.reduce((accumulator, operations) => accumulator + operations.operation, 0 ) || 0
-    console.log(expenses)
+    const labelList = operations.map(operation => operation.label)
+    console.log(operations)
 
     // Données de démonstration
 const dailyData = {
-    labels: ['Alimentation', 'Transport', 'Loisirs'],
+    labels: labelList || ['label'],
     datasets: [{
         label: 'Dépenses journalières',
         data: [30, 20, 15],

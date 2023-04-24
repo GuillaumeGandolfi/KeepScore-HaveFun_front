@@ -1,72 +1,90 @@
-import { useSelector } from 'react-redux'
-import Header from '../../Header/Header'
-import Footer from '../../Footer/Footer'
-import ProgressBar from '../../ProgressBar/ProgressBar'
-import pince from '../../../assets/profil/pince-transformed.png'
+import { useSelector } from "react-redux";
+import { Chip } from "@mui/material";
+import Header from "../../Header/Header";
+import Footer from "../../Footer/Footer";
+import ProgressBar from "../../ProgressBar/ProgressBar";
+import pince from "../../../assets/profil/pince-transformed.png";
 
-
-import './profil.css'
+import "./profil.css";
 
 const Profil = () => {
-    const user = localStorage.getItem('user');
-    const { id,  family, email, firstname, lastname, level, wallet,operations, friends, quests  } = JSON.parse(user)
-    const items = user.items_collection;
-    const expenses = operations.reduce((accumulator, operations) => accumulator + operations.operation, 0 ) || 0
-    console.log(expenses)
-    const progressRate = expenses/wallet*100 || 100
+  const {
+    family,
+    email,
+    firstname,
+    lastname,
+    level,
+    wallet,
+    operations,
+    friends,
+    quests,
+    items,
+  } = useSelector((state) => state.user);
+  const expenses =
+    operations.reduce(
+      (accumulator, operations) => accumulator + operations.operation,
+      0
+    ) || 0;
+  console.log(expenses);
+  const progressRate = (wallet * expenses) / 100 || 100;
 
-
-    return (
-
-        <div className='profil-page-container'>
-        <Header />
-        <div className="profil-container">  
-            <div className="profil-display-container">
-                <div className="profil-header">
-                    <div className="profil-picture">
-                        <img src={pince} alt="pince" />
-                    </div>
-                    <p>Famille : {family?.name}</p>
-                </div>
-               
-               <div className="profil profil-modifiable firstname">
-               <p className='modifiable'>Prénom : {firstname}</p>
-               <form className='hidden' >
-                <input type="text" className='midify-profil-firstame' />
-               </form>
-               </div>
-
-               <div className="profil profil-modifiable lastname">
-                <p className='modifiable'>Nom : {lastname}</p>
-                <form className='hidden' >
-                    <input type="text" className='modify-profil-firstname' />
-                </form>
-               </div>
-
-                <div className="profil email">
-                <p>email : {email}</p>
-                </div>
-                <div className="profil level">
-                <p>Level : {level}</p>
-                </div>
-
-                <div className='profil friends-container' >
-                    {friends && friends.map(friend => {
-                        <p>Amis :{friend} </p>
-                    })}
-                </div>
-                <div className="wallet-container">
-                    <p>Porte-Feuille : {wallet}</p>
-                    <ProgressBar progress={progressRate}/>
-                </div>
-                <p>Collection : </p>
-                <p>Quêtes : </p>
+  return (
+    <div className="profil-page-container">
+      <Header />
+      <div className="profil-container">
+        <div className="profil-display-container">
+          <div className="profil-header">
+            <div className="profil-picture">
+              <img src={pince} alt="pince" />
             </div>
-            <div className="profil-modify-container" ></div>
-        </div>
-        <Footer />
-        </div>
-    )
-}
+            <p>Famille : {family?.name}</p>
+          </div>
 
-export default Profil
+          <div className="profil profil-modifiable firstname">
+            <p className="modifiable">Prénom : {firstname}</p>
+            <form className="hidden">
+              <input type="text" className="midify-profil-firstame" />
+            </form>
+          </div>
+
+          <div className="profil profil-modifiable lastname">
+            <p className="modifiable">Nom : {lastname}</p>
+            <form className="hidden">
+              <input type="text" className="modify-profil-firstname" />
+            </form>
+          </div>
+
+          <div className="profil email">
+            <p>email : {email}</p>
+          </div>
+          <div className="profil level">
+            <p>Level : {level}</p>
+          </div>
+
+          <div className="profil friends-container">
+            {friends &&
+              friends.map((friend) => {
+                <Chip label={friend} variant="outlined" />;
+              })}
+          </div>
+          <div className="wallet-container">
+            <p>Porte-Feuille : {wallet}</p>
+            <ProgressBar progress={progressRate} />
+          </div>
+          <p>
+            Collection :{" "}
+            {items &&
+              items.map((item) => (
+                <Chip label={item.description} variant="outlined" />
+              ))}{" "}
+          </p>
+          <p>Quêtes :{ quests && quests.map( quest => <Chip label={quest.description} variant="outlined" />)} </p>
+        </div>
+        <div className="profil-modify-container"></div>
+      </div>
+      <Footer />
+    </div>
+  );
+};
+
+export default Profil;

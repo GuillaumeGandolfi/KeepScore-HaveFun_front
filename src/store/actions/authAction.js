@@ -3,7 +3,7 @@ export const  SAVE_SUCCESSFUL_AUTH  = 'SAVE_SUCCESSFUL_AUTH';
 
 
 export const submitLogin  = (email, password) => ({ type : SUBMIT_LOGIN, email, password });
-export const saveSuccessfulAuth = (data) => ({ type : SAVE_SUCCESSFUL_AUTH, data });
+export const saveSuccessfulAuth = (data) => ({ type : SAVE_SUCCESSFUL_AUTH });
 
 
 

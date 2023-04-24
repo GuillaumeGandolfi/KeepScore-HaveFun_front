@@ -10,8 +10,8 @@ function LandingPage() {
   
     <Box className='Box'
       sx={{
-        width:300,
-        height: 300,
+        width:600,
+        height: 600,
     
         position: 'absolute',
         marginTop: 'auto',
