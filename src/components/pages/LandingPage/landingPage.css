@@ -4,29 +4,43 @@
     
 }
 
-.text{
-    
-        font-size: 30px;
-        
-        line-height: 44px;
-        margin-top: 20px;
-        border-radius: 30px;
-        background-color: rgba(158, 148, 184, 0.702);
-        color: rgb(59, 43, 98);
-        position: relative;top: -240px; left: 250px;
-        box-shadow: 1px 1px 0 0.5 rgba(0, 0,0,0.3);
-        border-left: 10px solid transparent;
-        border-right: 10px solid ;
-        padding: 8px;
+.mascott_description {
+    font-family: var(--pixel-font);
+    font-size: 15px;
+    line-height: 1.5;
+    margin-top: 20px;
+    border-radius: 30px;
+    background-color: rgba(158, 148, 184, 0.702);
+    color: rgb(59, 43, 98);
+    position: absolute;
+    top: 48%;
+    left: 66%;
+    width: 400px;
+    box-shadow: 1px 1px 0 0.5 rgba(0, 0, 0, 0.3);
+    border-left: 10px solid transparent;
+    border-right: 10px solid;
+    padding: 8px;
 
 }
-.text::before{
-    content: '';
-    border-bottom: 8px solid rgb(115, 66, 111);
-    position: absolute;
-    border-left:8px solid transparent ;
-    border-right: 8px solid transparent;
-    margin-top: -16px;
-    margin-left: 10px;
 
+.mascott_description::before {
+    content: '';
+    border-bottom: 8px solid rgba(158, 148, 184, 0.702);
+    position: absolute;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    margin-top: -14px;
+    margin-left: 0;
+
+}
+.typed-cursor{
+    opacity: 0 !important;
+}
+.navigation_btn {
+    text-align: center;
+    margin-top: 30px;
+}
+.navigation_btn a {
+    font-size: 30px;
+    font-family: var(--pixel-font);
 }

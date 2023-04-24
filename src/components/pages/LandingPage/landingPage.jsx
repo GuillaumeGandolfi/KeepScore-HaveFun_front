@@ -1,25 +1,44 @@
 import { Avatar, Box } from '@mui/material';
-import React from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
+import Typed from 'typed.js';
 import './landingPage.css';
 import image from '../../../assets/image.png';
 import { Link } from 'react-router-dom';
 
+const landingBoxStyles = {
+  width:300,
+  height: 300,
+  position: 'absolute',
+  marginTop: 'auto',
+  marginLeft: 'auto',
+  top: '30%',
+  left: '35%' 
+}
 
 function LandingPage() {
+  const mascottDescriptionRef = useRef(null);
+
+  useLayoutEffect(() => {
+    if (mascottDescriptionRef.current) {
+        const typed = new Typed(mascottDescriptionRef.current, {
+            strings: ["Salut, c'est Keep Score And Have Fun ...",
+             "On vous permet de suivre et de contrôler les dépenses, d'établir des objectifs d'économies.",
+             "En plus de cela, on vous offre des récompenses telles que des cadeaux et des points de fidélité pour vous encourager à économiser et à atteindre des objectifs financiers." 
+            ],
+            typeSpeed: 70,
+            backSpeed: 30,
+            backDelay: 1000,
+            loop: true
+        });
+        return () => {
+            typed.destroy();
+        };
+    }
+  });
   return (
   
-    <Box className='Box'
-      sx={{
-        width:600,
-        height: 600,
-    
-        position: 'absolute',
-        marginTop: 'auto',
-        marginLeft: 'auto',
-       
-        top: '',
-        left: '35%' 
-        }}
+    <Box className='landing_box'
+      sx={landingBoxStyles}
       >
         <Avatar alt='mascotte'src={image} 
           sx={{
@@ -28,13 +47,8 @@ function LandingPage() {
           }}
           
         />
-        <center className='text'>
-          <b>
-            Gérer votre argent simplement...
-          
-        </b>
-        </center>
-        <p style={{ marginTop: '30px' }}>
+        <p className="mascott_description" ref={mascottDescriptionRef}></p>
+        <p className='navigation_btn'>
           <Link to={'/signin'} style={{ marginRight:'30px'}}>SignIn</Link>
           <Link to={'/signup'}>SignUp</Link>
          
