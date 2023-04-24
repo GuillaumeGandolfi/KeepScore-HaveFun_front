@@ -1,17 +1,6 @@
-const user = localStorage.getItem("user");
-const {
-  id,
-  family,
-  email,
-  firstname,
-  lastname,
-  level,
-  wallet,
-  operations,
-  friends,
-  quests,
-} = JSON.parse(user);
-const items = user.items_collection;
+
+
+
 const expenses =
   operations.reduce(
     (accumulator, operations) => accumulator + operations.operation,

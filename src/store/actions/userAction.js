@@ -13,5 +13,4 @@ export const saveUserInfo = (id,family,email,firstname,lastname,level,wallet,ope
     friends,
     quests,
     items,
-
 })
