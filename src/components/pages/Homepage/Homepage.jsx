@@ -22,7 +22,6 @@ const Homepage = () => {
     const { id,  family, email, firstname, lastname, level, wallet,operations, friends, quests, items  } = useSelector(state => state.user)
     const expenses = operations.reduce((accumulator, operations) => accumulator + operations.operation, 0 ) || 0
     const labelList = operations.map(operation => operation.label)
-    console.log(operations)
 
     // Données de démonstration
 const dailyData = {

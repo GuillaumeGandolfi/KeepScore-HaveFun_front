@@ -9,7 +9,6 @@ const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case SUBMIT_LOGIN:
       const { email, password } = store.getState().login;
-      console.log(store.getState().login);
       axiosPublic
         .post("/login", {
           email,
@@ -18,7 +17,7 @@ const authMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           const { data } = response;
           const { token, refreshToken } = data;
-          const user = JSON.stringify(data.responseWithoutPassword);
+          const user = (data.responseWithoutPassword);
           const {
             id,
             family,
@@ -30,7 +29,7 @@ const authMiddleware = (store) => (next) => (action) => {
             operations,
             friends,
             quests,
-          } = JSON.parse(user);
+          } = user;
           const items = user.items_collection;
           const session = { token, refreshToken };
           localStorage.setItem("session", JSON.stringify(session));

@@ -17,7 +17,6 @@ import './connectionForm.css'
 
 const ConnectionForm = () => {
   const { email, password, isLogged } = useSelector((state) => state.login);
-  console.log({email})
 
   const dispatch = useDispatch();
   const handleChange = (event) => {
