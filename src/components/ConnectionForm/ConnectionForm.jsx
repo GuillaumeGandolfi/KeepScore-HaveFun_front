@@ -1,19 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 import { TextField, Button } from "@mui/material";
+
 import {
   changeEmailField,
   changePasswordField,
 } from "../../store/actions/actions";
 import Logo__3 from '../../assets/Logo__3.png'
+import Footer from "../Footer/Footer.jsx";
+
+import { submitLogin } from "../../store/actions/authAction";
 
 import './connectionForm.css'
-import Footer from "../Footer/Footer.jsx";
-import { submitLogin } from "../../store/actions/authAction";
-import { Navigate } from "react-router-dom";
+
 
 const ConnectionForm = () => {
-  const { email, password, isLogged } = useSelector((state) => state);
+  const { email, password, isLogged } = useSelector((state) => state.login);
+
   const dispatch = useDispatch();
   const handleChange = (event) => {
     switch (event.target.id) {

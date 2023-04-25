@@ -51,7 +51,7 @@
     transition: 0.9s all ease-in-out; 
 }
 .modifiable:hover::before{
-    content:url('../../assets/icons/history_edu_black_48dp.svg');  
+    content:url('../../../assets/icons/history_edu_black_48dp.svg');  
 }
 
 .profil-modifiable:hover{
