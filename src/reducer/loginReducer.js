@@ -4,6 +4,7 @@ import {
   CHANGE_EMAIL_FIELD,
   CHANGE_PASSWORD_FIELD,
 } from "../store/actions/actions";
+import { LOGOUT } from '../store/actions/logoutAction'
 
 const initialState = {
   isLogged: false,
@@ -19,6 +20,8 @@ const loginReducer = (state = initialState, action = {}) => {
       return { ...state, email: action.input };
     case CHANGE_PASSWORD_FIELD:
       return { ...state, password: action.input };
+    case LOGOUT:
+        return {...initialState}
     default:
       return state;
   }

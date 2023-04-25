@@ -6,8 +6,8 @@ import image from '../../../assets/avatar.png';
 import { Link } from 'react-router-dom';
 
 const landingBoxStyles = {
-  width: 1024,
-  height: 400,
+  width: 300,
+  height: 300,
   position: 'absolute',
   marginTop: 'auto',
   marginLeft: 'auto',
