@@ -1,15 +1,10 @@
 import React from 'react';
 import './contactpage.css'
 
-// Import des components Header & Footer
-import Header from '../../Header/Header'
-import Footer from '../../Footer/Footer'
-
 const Contactpage = () => {
     return (
         <div className="contactpage__container">
-            <Header />
-            <Footer />
+            Page de contact des admins - en Construction
         </div>
     )
 }

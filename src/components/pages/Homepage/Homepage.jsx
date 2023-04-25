@@ -4,10 +4,6 @@ import { NavLink } from "react-router-dom"
 import React, { useState, useRef, useEffect } from 'react';
 import './homepage.css'
 
-// Import des components Header & Footer
-import Header from '../../Header/Header'
-import Footer from '../../Footer/Footer'
-
 // Import svg - la main à côté du pseudo
 import Hand from '../../../assets/icons/home__hand.svg'
 
@@ -97,7 +93,6 @@ const Homepage = () => {
 
     return (
         <div className="homepage__container">
-            <Header />
 
             <h1 className="home__title">
                 Hello Abdelaziz
@@ -150,8 +145,6 @@ const Homepage = () => {
                     </div>
                 </div>
             </div>
-
-            <Footer />
         </div>
     );
 };

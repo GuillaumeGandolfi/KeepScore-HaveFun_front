@@ -35,34 +35,73 @@ import Error from "./components/pages/Error/Error";
 import Errordashboard from "./components/pages/Budgetpage/pages/Errordashboard.jsx";
 import ExpensesPage, {expensesAction, expensesLoader} from "./components/pages/Budgetpage/pages/ExpensesPage.jsx";
 import BudgetPage, {budgetAction, budgetLoader} from "./components/pages/Budgetpage/pages/BudgetPage.jsx";
+import Layout from "./components/Layout.jsx";
+import ConnectionFormCustom from "./components/ConnectionForm2/ConnectionFormCustom.jsx";
 
 
 const router = createBrowserRouter([
+
+    // ----- Pages sans header, ni footer -----
+    {
+      path:'/index',
+      element:<Landing />
+    },
+    {
+      path:'/signin',
+      element: <ConnectionForm />
+    },
+    {
+      path:'/signup',
+      element:<Inscription />
+    },
+    // Travail perso sur une page de connection custom
+    {
+      path:'/login',
+      element: <ConnectionFormCustom />
+    },
+
+    // ----- Pages avec header & footer -----
   {
-  path: '/',
-  element: <Landing/>,
-  errorElement: <Error />
+    path: '/',
+    element: <Layout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: '/homepage',
+        element: <Homepage />
+      },
+      {
+        path: '/quests',
+        element: <Questspage />
+      },
+      {
+        path: '/contact',
+        element: <Contactpage />
+      },
+      {
+        path: '/friends',
+        element: <Friendspage />
+      },
+      {
+        path: '/guilde',
+        element: <Guildepage />
+      },
+      {
+        path: '/shop',
+        element: <Shoppage />
+      },
+      {
+        path:'/profil/1',
+        element: <Profil />
+      },
+      {
+        path:'transaction',
+        element: <Transaction />
+      },
+    ]
 },
-{
-  path:'/signin',
-  element: <ConnectionForm />
-},
-{
-  path:'/signup',
-  element:<Inscription />
-},
-{
-  path:'/homepage',
-  element: <Homepage />
-},
-{
-  path:'/profil/1',
-  element: <Profil />
-},
-{
-  path:'transaction',
-  element: <Transaction />
-},
+
+    // ----- Application de gestion de budget -----
 {
   path: '/budget',
   element: <Main />,
@@ -97,26 +136,6 @@ const router = createBrowserRouter([
       errorElement: <Errordashboard />,
     },
   ]
-},
-{
-  path: '/quests',
-  element: <Questspage />
-},
-{
-  path: '/contact',
-  element: <Contactpage />
-},
-{
-  path: '/friends',
-  element: <Friendspage />
-},
-{
-  path: '/guilde',
-  element: <Guildepage />
-},
-{
-    path: '/shop',
-    element: <Shoppage />
 }
 ])
 

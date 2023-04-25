@@ -7,12 +7,12 @@ import {
 } from "../../store/actions/actions";
 import Logo__3 from '../../assets/Logo__3.png'
 
-import './connectionForm.css'
+import './connectionFormcustom.css'
 import Footer from "../Footer/Footer.jsx";
 import { submitLogin } from "../../store/actions/authAction";
 import { Navigate } from "react-router-dom";
 
-const ConnectionForm = () => {
+const ConnectionFormCustom = () => {
   const { email, password, isLogged } = useSelector((state) => state);
   const dispatch = useDispatch();
   const handleChange = (event) => {
@@ -69,4 +69,4 @@ const ConnectionForm = () => {
   );
 };
 
-export default ConnectionForm;
+export default ConnectionFormCustom;

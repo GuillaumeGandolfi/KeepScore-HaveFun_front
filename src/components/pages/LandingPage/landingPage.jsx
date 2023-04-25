@@ -36,7 +36,7 @@ function LandingPage() {
     }
   });
   return (
-  
+  <>
     <Box className='landing_box'
       sx={landingBoxStyles}
       >
@@ -55,8 +55,8 @@ function LandingPage() {
         </p>
         
       </Box>
-      
 
+  </>
   );
 }
 
