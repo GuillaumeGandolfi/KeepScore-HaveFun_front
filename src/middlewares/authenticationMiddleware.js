@@ -18,6 +18,7 @@ const authMiddleware = (store) => (next) => (action) => {
           const { data } = response;
           const { token, refreshToken } = data;
           const user = (data.responseWithoutPassword);
+          console.log(user)
           const {
             id,
             family,
@@ -26,9 +27,9 @@ const authMiddleware = (store) => (next) => (action) => {
             lastname,
             level,
             wallet,
-            operations,
             friends,
             quests,
+            budget,
           } = user;
           const items = user.items_collection;
           const session = { token, refreshToken };
@@ -43,10 +44,10 @@ const authMiddleware = (store) => (next) => (action) => {
               lastname,
               level,
               wallet,
-              operations,
               friends,
               quests,
-              items
+              items,
+              budget
             )
           );
         })

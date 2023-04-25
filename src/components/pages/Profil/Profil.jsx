@@ -15,18 +15,19 @@ const Profil = () => {
     lastname,
     level,
     wallet,
-    operations,
+    budget,
     friends,
     quests,
     items,
   } = useSelector((state) => state.user);
-  const expenses =
-    operations.reduce(
-      (accumulator, operations) => accumulator + operations.operation,
-      0
-    ) || 0;
-  console.log(expenses);
-  const progressRate = (wallet * expenses) / 100 || 100;
+  // const expenses =
+  //   operations.reduce(
+  //     (accumulator, operations) => accumulator + operations.operation,
+  //     0
+  //   ) || 0;
+  // console.log(expenses);
+  // const progressRate = (wallet * expenses) / 100 || 100;
+  const progressRate = 100
 
   return (
     <div className="profil-page-container">
@@ -64,21 +65,23 @@ const Profil = () => {
           <div className="profil friends-container">
             {friends &&
               friends.map((friend) => {
-                <Chip label={friend} variant="outlined" />;
+                <Chip key={friend.id} label={friend.firstname} variant="outlined" />;
               })}
           </div>
           <div className="wallet-container">
             <p>Porte-Feuille : {wallet}</p>
             <ProgressBar progress={progressRate} />
           </div>
-          <p>
+         
             Collection :{" "}
             {items &&
               items.map((item) => (
-                <Chip label={item.description} variant="outlined" />
+                <Chip key={item.id} label={item.description} variant="outlined" />
               ))}{" "}
-          </p>
-          <p>Quêtes :{ quests && quests.map( quest => <Chip label={quest.description} variant="outlined" />)} </p>
+            <div className="quests">
+              Quêtes :{ quests && quests.map( quest => <Chip label={quest.description} variant="outlined" />)} 
+
+            </div> 
         </div>
         <div className="profil-modify-container"></div>
       </div>

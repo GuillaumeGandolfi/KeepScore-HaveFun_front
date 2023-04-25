@@ -16,13 +16,13 @@ import { Doughnut } from 'react-chartjs-2';
 
 const Homepage = () => {
     // état pour stocker les données de chart actuellement affichées
-    const { id,  family, email, firstname, lastname, level, wallet,operations, friends, quests, items  } = useSelector(state => state.user)
-    const expenses = operations.reduce((accumulator, operations) => accumulator + operations.operation, 0 ) || 0
-    const labelList = operations.map(operation => operation.label)
-
+    const { id,  family, email, firstname, lastname, level, wallet,budget, friends, quests, items  } = useSelector(state => state.user)
+    // const expenses = operations.reduce((accumulator, operations) => accumulator + operations.operation, 0 ) || 0
+    // const labelList = operations.map(operation => operation.label)
+    
     // Données de démonstration
 const dailyData = {
-    labels: labelList || ['label'],
+    labels: ['label'],
     datasets: [{
         label: 'Dépenses journalières',
         data: [30, 20, 15],
@@ -120,7 +120,7 @@ const yearlyData = {
 
                         <div className="homepage__expenses">
                             <h2 className="homepage__expenses-title">Dépenses</h2>
-                            <h3 className="homepage__expenses-current">{expenses} sur {wallet} €</h3>
+                            <h3 className="homepage__expenses-current">{} sur {wallet} €</h3>
                         </div>
 
                         <div className="homepage__budget">
