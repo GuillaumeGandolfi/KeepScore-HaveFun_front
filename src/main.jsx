@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, Route, RouterProvider } from "react-router-dom";
 import { Provider } from 'react-redux'
 import App from './App'
-import Inscription from './components/InscriptionForm';
 import store from './store/store'
 import './styles/reset.css'
 import './styles/index.css'
 import ConnectionForm from './components/ConnectionForm/ConnectionForm';
-import Inscription from './components/Inscription/Inscription';
+import Inscription from './components/Inscription/Inscription'
 import Landing from './components/pages/LandingPage/landingPage';
 import Homepage from './components/pages/Homepage/Homepage';
 import Profil from './components/pages/Profil/Profil'

@@ -6,6 +6,7 @@ const initialState = {
   lastname: "",
   signUpEmailField: "",
   signUpPasswordField: "",
+  confirmPassword:"",
 };
 
 const signupReducer = (state = initialState, action = {}) => {
