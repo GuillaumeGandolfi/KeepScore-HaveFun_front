@@ -12,7 +12,9 @@ import Diversity2Icon from '@mui/icons-material/Diversity2';
 import GroupWorkIcon from '@mui/icons-material/GroupWork';
 import EmailIcon from '@mui/icons-material/Email';
 import SavingsIcon from '@mui/icons-material/Savings';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { toggleHeader } from "../../store/actions/headerAction";
+import { deleteUserInfo } from "../../store/actions/userAction";
 
 
 const Header = () => {
@@ -20,6 +22,11 @@ const Header = () => {
     const dispatch = useDispatch()
     const handleClick = () => {
         dispatch(toggleHeader())
+    }
+
+    const handleLogout = () => {
+        dispatch(deleteUserInfo())
+        dispatch(logout())
     }
 
     return (
@@ -59,6 +66,10 @@ const Header = () => {
 
                         <li className="nav__item">
                             <NavLink to="/contact" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><EmailIcon /></div>Contact</NavLink>
+                        </li>
+
+                        <li className="nav__item">
+                            <NavLink onClick={handleLogout} to="/index" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><LogoutIcon /></div>Logout</NavLink>
                         </li>
                     </ul>
 

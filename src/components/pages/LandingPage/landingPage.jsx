@@ -2,17 +2,17 @@ import { Avatar, Box } from '@mui/material';
 import React, { useLayoutEffect, useRef } from 'react';
 import Typed from 'typed.js';
 import './landingPage.css';
-import image from '../../../assets/image.png';
+import image from '../../../assets/avatar.png';
 import { Link } from 'react-router-dom';
 
 const landingBoxStyles = {
-  width:300,
-  height: 300,
+  width: '700px',
+  height: '700px',
   position: 'absolute',
   marginTop: 'auto',
   marginLeft: 'auto',
-  top: '30%',
-  left: '35%' 
+  top: '25%',
+  left: '30%' 
 }
 
 function LandingPage() {
@@ -40,18 +40,12 @@ function LandingPage() {
     <Box className='landing_box'
       sx={landingBoxStyles}
       >
-        <Avatar alt='mascotte'src={image} 
-          sx={{
-            width:300,
-            height:300,
-          }}
-          
-        />
+        <Avatar alt='mascott'src={image} sx={{ width: 300, height: 300, borderRadius: 0 }}  />
         <p className="mascott_description" ref={mascottDescriptionRef}></p>
         <p className='navigation_btn'>
           <Link to={'/signin'} style={{ marginRight:'30px'}}>SignIn</Link>
           <Link to={'/signup'}>SignUp</Link>
-         
+
         </p>
         
       </Box>
@@ -59,6 +53,4 @@ function LandingPage() {
   </>
   );
 }
-
-
 export default LandingPage;

@@ -1,6 +1,8 @@
-.Box {
+.landing_box {
     background-image: url('../../../assets/pixBackground.gif');
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size:100%;
+    overflow: visible;
     
 }
 
@@ -10,13 +12,12 @@
     line-height: 1.5;
     margin-top: 20px;
     border-radius: 30px;
-    background-color: rgba(158, 148, 184, 0.702);
-    color: rgb(59, 43, 98);
+    background-color: rgba(255, 255, 255, 0.70);
+    color: rgb(30, 14, 69);
     position: absolute;
-    top: 48%;
-    left: 66%;
+    top: 20%;
+    left: 29%;
     width: 400px;
-    box-shadow: 1px 1px 0 0.5 rgba(0, 0, 0, 0.3);
     border-left: 10px solid transparent;
     border-right: 10px solid;
     padding: 8px;
@@ -25,7 +26,7 @@
 
 .mascott_description::before {
     content: '';
-    border-bottom: 8px solid rgba(158, 148, 184, 0.702);
+    border-bottom: 8px solid rgba(255, 255, 255, 0.70);
     position: absolute;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
@@ -38,7 +39,7 @@
 }
 .navigation_btn {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 70px;
 }
 .navigation_btn a {
     font-size: 30px;
