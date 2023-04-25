@@ -32,7 +32,7 @@ const ConnectionFormCustom = () => {
   
   return (
       <>
-      {isLogged && <Navigate to={'/homepage'} replace={true} />}
+      {isLogged && <Navigate to={'/app/homepage'} replace={true} />}
     <div className="formContainer">
     <img className="connectionFormLogo" src={Logo__3} alt="a colorfull game controller" />
       <div className="connectionForm__container-animation">
