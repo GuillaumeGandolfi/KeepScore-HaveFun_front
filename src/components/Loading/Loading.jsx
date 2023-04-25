@@ -1,18 +1,18 @@
-import loadercoin from '../../assets/loadercoin.jpg'
-import './loader.css'
+import './loading.css'
 
 
-const Loader = () => {
+const Loading = () => {
 
 
     return(
         <div className='container'>
             <div className='coin' >
-            <div className='face heads' >KSHF</div>
+            <div className='face heads' ></div>
             <div className='face tails' ></div>
             </div>
+            <p className='chargement'> Chargement... </p>
         </div>
     )
 }
 
-export default Loader
+export default Loading
