@@ -37,6 +37,10 @@ import ExpensesPage, {expensesAction, expensesLoader} from "./components/pages/B
 import BudgetPage, {budgetAction, budgetLoader} from "./components/pages/Budgetpage/pages/BudgetPage.jsx";
 import Layout from "./components/Layout.jsx";
 import ConnectionFormCustom from "./components/ConnectionForm2/ConnectionFormCustom.jsx";
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+
+
+
 
 
 const router = createBrowserRouter([
@@ -68,7 +72,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/homepage',
-        element: <Homepage />
+        element: <PrivateRoute>
+          <Homepage />
+        </PrivateRoute>
+        
+
       },
       {
         path: '/quests',

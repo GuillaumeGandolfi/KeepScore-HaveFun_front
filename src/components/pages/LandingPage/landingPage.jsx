@@ -2,12 +2,12 @@ import { Avatar, Box } from '@mui/material';
 import React, { useLayoutEffect, useRef } from 'react';
 import Typed from 'typed.js';
 import './landingPage.css';
-import image from '../../../assets/image.png';
+import image from '../../../assets/avatar.png';
 import { Link } from 'react-router-dom';
 
 const landingBoxStyles = {
-  width:300,
-  height: 300,
+  width: 1024,
+  height: 400,
   position: 'absolute',
   marginTop: 'auto',
   marginLeft: 'auto',

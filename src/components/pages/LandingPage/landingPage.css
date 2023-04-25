@@ -1,6 +1,8 @@
-.Box {
+.landing_box {
     background-image: url('../../../assets/pixBackground.gif');
-    background-size: cover;
+    
+    background-size:100%;
+    overflow: visible;
     
 }
 
