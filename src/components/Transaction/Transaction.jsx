@@ -1,12 +1,13 @@
 import { TextField, Button } from "@mui/material"
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createTransaction } from "../../store/actions/Transactions";
 
 
 const Transaction = () => {
     const dispatch = useDispatch()
-
+    const { budget } = useSelector(state =>state.user)
+    console.log(budget)
     const [label, setLabel] = useState('');
     const [transaction, setTransaction] = useState(0);
 
@@ -20,7 +21,7 @@ const Transaction = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        dispatch(createTransaction(label, transaction))
+        dispatch(createTransaction(label, operation, userId, budgetId))
     };
 
 

@@ -9,17 +9,15 @@ import { DELETE_USER_INFO } from "../store/actions/userAction";
 // const labelList = operations.map((operation) => operation.label);
 
 const initialState = {
-  id: 0,
+  budget : [],
+  email: '',
   family: {},
-  email: "",
-  firstname: "",
-  lastname: "",
+  firstname: '',
+  id: 0,
+  lastname: '',
   level: 0,
-  wallet: 0,
-  budget: [],
-  friends: [],
   quests: [],
-  items: [],
+  wallet: 0, 
 };
 
 const userReducer = (state = initialState, action = {}) => {
@@ -27,17 +25,15 @@ const userReducer = (state = initialState, action = {}) => {
     case SAVE_USER_INFO:
       return {
         ...state,
-        id: action.id,
-        family: action.family,
-        email: action.email,
-        firstname: action.firstname,
-        lastname: action.lastname,
-        level: action.level,
-        wallet: action.wallet,
         budget: action.budget,
-        friends: action.friends,
+        email: action.email,
+        family: action.family,
+        firstname: action.firstname,
+        id: action.id,
+        lastname: action. lastname,
+        level: action.level,
         quests: action.quests,
-        items: action.items,
+        wallet: action.wallet 
       };
     case DELETE_USER_INFO:
       return { ...initialState };

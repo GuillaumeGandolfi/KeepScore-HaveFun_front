@@ -19,35 +19,32 @@ const authMiddleware = (store) => (next) => (action) => {
           const { token, refreshToken } = data;
           const user = (data.responseWithoutPassword);
           console.log(user)
+          
           const {
-            id,
-            family,
+            budget,
             email,
+            family,
             firstname,
+            id,
             lastname,
             level,
-            wallet,
-            friends,
             quests,
-            budget,
+            wallet 
           } = user;
-          const items = user.items_collection;
           const session = { token, refreshToken };
           localStorage.setItem("session", JSON.stringify(session));
           store.dispatch(saveSuccessfulAuth(user));
           store.dispatch(
             saveUserInfo(
-              id,
-              family,
+              budget,
               email,
+              family,
               firstname,
+              id,
               lastname,
               level,
-              wallet,
-              friends,
               quests,
-              items,
-              budget
+              wallet 
             )
           );
         })
