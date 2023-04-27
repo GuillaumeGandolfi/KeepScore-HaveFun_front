@@ -2,18 +2,22 @@ import mem from "mem";
 import { axiosPublic } from "./axiosPublic";
 
 const refreshTokenFunction = async () => {
-    const session = JSON.parse(localStorage.getItem("session"));
+    
 
     try {
+
+        let session = JSON.parse(localStorage.getItem("session"));
         const response = await axiosPublic.post('/token/refresh',{
             refreshToken: session?.refreshToken,
+            
+            
         });
 
-        const { session } = response.data;
+         session  = response.data;
 
         if(!session?.accessToken) {
             localStorage.removeItem("session");
-            localStorage.removeItem("user")
+            
         }
 
         localStorage.setItem("session", JSON.stringify(session));
@@ -22,7 +26,7 @@ const refreshTokenFunction = async () => {
 
     } catch (error) {
         localStorage.removeItem("session");
-        localStorage.removeItem("user");
+        
     }
 };
 
