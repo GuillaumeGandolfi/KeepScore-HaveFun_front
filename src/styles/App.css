@@ -150,11 +150,6 @@ button {
     outline: none;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-
 /*Reusable css classes*/
 .section {
     padding: 6rem 0 2rem;

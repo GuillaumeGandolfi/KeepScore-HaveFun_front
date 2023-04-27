@@ -95,7 +95,7 @@ p {
 
 :where(a, .btn) {
     --color: hsl(var(--text));
-    --backdrop: hsl(var(--accent));
+    --backdrop: #6ee7b7;
     font: inherit;
     color: var(--color);
     border-radius: var(--round-sm);
@@ -118,7 +118,7 @@ p {
 
 :where(a, .btn):is(:hover, :focus-visible) {
     -webkit-box-shadow: 0 0 0 3px hsl(var(--bkg)), 0 0 0 6px var(--backdrop);
-    box-shadow: 0 0 0 3px hsl(var(--bkg)), 0 0 0 6px var(--backdrop);
+    box-shadow: 0 0 0 3px hsl(var(--bkg)), 0 0 0 5px var(--backdrop);
 }
 
 :where(.btn) {

@@ -43,6 +43,7 @@ const ConnectionForm = () => {
         <p className="connection-brand">Keep Score & Have Fun</p>
         <div>-</div>
         <h2>Connectez vous</h2>
+
         <form method="POST" onSubmit={handleSubmit} className="connectionForm">
 
           <TextField

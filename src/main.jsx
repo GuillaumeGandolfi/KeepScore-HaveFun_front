@@ -36,7 +36,7 @@ import Errordashboard from "./components/pages/Budgetpage/pages/Errordashboard.j
 import ExpensesPage, {expensesAction, expensesLoader} from "./components/pages/Budgetpage/pages/ExpensesPage.jsx";
 import BudgetPage, {budgetAction, budgetLoader} from "./components/pages/Budgetpage/pages/BudgetPage.jsx";
 import Layout from "./components/Layout.jsx";
-import ConnectionFormCustom from "./components/ConnectionForm2/ConnectionFormCustom.jsx";
+import ConnectionFormCustom from "./components/ConnectionFormCustom/connectionFormCustom.jsx";
 
 
 const router = createBrowserRouter([
@@ -54,10 +54,9 @@ const router = createBrowserRouter([
       path:'/signup',
       element:<Inscription />
     },
-    // Travail perso sur une page de connection custom
     {
-      path:'/login',
-      element: <ConnectionFormCustom />
+      path: '/custom',
+      element:<ConnectionFormCustom />
     },
 
     // ----- Pages avec header & footer -----
