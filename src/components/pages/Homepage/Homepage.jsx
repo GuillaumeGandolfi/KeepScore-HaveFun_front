@@ -57,7 +57,7 @@ const Homepage = () => {
     datasets: [
       {
         label: "Dépenses journalières",
-        data: daylyTransactions?.map(transaction => transaction.operation)[0],
+        data: daylyTransactions?.map(transaction => transaction.operation)||[0],
         backgroundColor: ["#FF6294", "#44C768", "#66ACFF"],
       },
     ],
