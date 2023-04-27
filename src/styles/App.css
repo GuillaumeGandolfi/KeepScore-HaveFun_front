@@ -14,7 +14,7 @@
     --title-color-dark: hsl(var(--hue), var(--sat), 0%);
     --text-color: hsl(var(--hue), var(--sat), 46%);
     --body-color: hsl(var(--hue), var(--sat), 98%);
-    --hover-pixel: #008933;
+    --hover-pixel: #6ee7b7;
     --container-color: #fff;
 
     /*========== Font and typography ==========*/
@@ -193,9 +193,9 @@ button {
     font-weight: var(--font-medium);
 }
 
-.button:hover {
-    background-color: var(--title-color-dark);
-}
+/*.button:hover {*/
+/*    background-color: var(--title-color-dark);*/
+/*}*/
 
 .button__icon {
     margin-left: var(--mb-0-5);

@@ -30,8 +30,8 @@
 
 .box {
     position: relative;
-    width: 340px;
-    height: 420px;
+    width: 500px;
+    height: 600px;
     background: #fff;
     border-radius: 8px;
     padding: 12rem;
@@ -44,7 +44,7 @@
     top: -30%;
     left: -30%;
     width: 380px;
-    height: 420px;
+    height: 500px;
     background: linear-gradient(0deg, transparent, transparent, #6ee7b7, #6ee7b7, #6ee7b7);
     z-index: 1;
     transform-origin: bottom right;
@@ -57,7 +57,7 @@
     top: -30%;
     left: -30%;
     width: 380px;
-    height: 420px;
+    height: 500px;
     background: linear-gradient(0deg, transparent, transparent, #6ee7b7, #6ee7b7, #6ee7b7);
     z-index: 1;
     transform-origin: bottom right;
@@ -77,7 +77,7 @@
     top: -30%;
     left: -30%;
     width: 380px;
-    height: 420px;
+    height: 500px;
     background: linear-gradient(0deg, transparent, transparent, #fda4af, #fda4af, #fda4af);
     z-index: 1;
     transform-origin: bottom right;
@@ -91,7 +91,7 @@
     top: -30%;
     left: -30%;
     width: 380px;
-    height: 420px;
+    height: 500px;
     background: linear-gradient(0deg, transparent, transparent, #fda4af, #fda4af, #fda4af);
     z-index: 1;
     transform-origin: bottom right;
@@ -199,9 +199,8 @@
     text-decoration: none;
 }
 
-.box form .links a:hover,
-.box form .links a:nth-child(2) {
-    color: #1c1c1c;
+.box form .links a:hover {
+    color: #6ee7b7;
 }
 
 .box form input[type="submit"] {
@@ -211,12 +210,13 @@
     background: #6ee7b7;
     font-size: 0.9em;
     border-radius: 4px;
-    font-weight: 600;
-    /*margin-top: 1rem;*/
+    font-weight: 400;
 }
 
-.box form input[type="submit"] .connectionForm__btn {
-    padding: 5rem;
+.box form input[type="submit"].connectionForm__btn {
+    height: 50px;
+    margin-top: 2rem;
+    cursor: pointer;
 }
 
 .box form input [type="submit"]:active {

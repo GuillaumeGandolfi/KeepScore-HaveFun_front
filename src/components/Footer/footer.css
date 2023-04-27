@@ -24,7 +24,7 @@
 }
 
 .footer__link:hover {
-    color: var(--hover-pixel);
+    color: #6ee7b7;
 }
 
 .footer__list {
@@ -52,7 +52,7 @@
 }
 
 .footer__social-link:hover {
-    background-color: var(--hover-pixel);
+    background-color: #6ee7b7;
 }
 
 .footer__copy {

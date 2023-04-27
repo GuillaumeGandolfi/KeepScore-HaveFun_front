@@ -80,7 +80,7 @@ const BudgetPage = () => {
             {expenses && expenses.length > 0 && (
                 <div className="grid-md">
                     <h2>
-                        <span className="accent">{budget.name}</span> Expenses
+                        <span className="accent">{budget.name}</span>
                     </h2>
                     <Table expenses={expenses} showBudget={false} />
                 </div>

@@ -25,6 +25,7 @@ const ExpenseItem = ({ expense, showBudget }) => {
                 <td style={{verticalAlign: "middle"}}>
                     <Link
                         to={`/budget/${budget.id}`}
+                        className="budget__link"
                         style={{
                             "--accent": budget.color,
                         }}
@@ -34,7 +35,7 @@ const ExpenseItem = ({ expense, showBudget }) => {
                 </td>
             )}
             <td>
-                <fetcher.Form method="post">
+                <fetcher.Form method="post" className="form__container-btn">
                     <input type="hidden" name="_action" value="deleteExpense" />
                     <input type="hidden" name="expenseId" value={expense.id} />
                     <button
@@ -43,7 +44,7 @@ const ExpenseItem = ({ expense, showBudget }) => {
                         aria-label={`Delete ${expense.name} expense`}
                         style={{ verticalAlign: "middle" }}
                     >
-                        <TrashIcon width={20}  />
+                        <TrashIcon width={20} />
                     </button>
                 </fetcher.Form>
             </td>

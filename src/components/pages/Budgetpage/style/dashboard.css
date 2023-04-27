@@ -80,7 +80,7 @@ p {
 /* color utils */
 
 .accent {
-    color: hsl(var(--accent));
+    color: #6ee7b7;
 }
 
 .muted {
@@ -93,9 +93,9 @@ p {
     padding: 0.5rem 0.5rem;
 }
 
-:where(a, .btn) {
+:where(.btn) {
     --color: hsl(var(--text));
-    --backdrop: #6ee7b7;
+    --backdrop: hsl(var(--accent));
     font: inherit;
     color: var(--color);
     border-radius: var(--round-sm);
@@ -147,9 +147,9 @@ p {
     color: var(--color);
 }
 
-:where(.btn--dark) {
-    --backdrop: hsl(var(--text));
-}
+/*:where(.btn--dark) {*/
+/*    --backdrop: hsl(var(--text));*/
+/*}*/
 
 :where(.btn--outline) {
     background-color: var(--color);
@@ -442,7 +442,7 @@ select {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    gap: var(--space-md);
+    gap: var(--space-lg);
 }
 
 .budget {
@@ -457,9 +457,9 @@ select {
     box-shadow: 0.25em 0.3em 1em hsl(var(--muted) / 0.2);
     background-color: var(--bkg);
     border-radius: var(--round-lg);
-    border: 3px solid hsl(var(--backdrop));
+    border: 4px solid hsl(var(--backdrop));
     padding: calc(var(--space-md) / 1.5) calc(var(--space-md) / 1.2);
-    gap: var(--space-sm);
+    gap: var(--space-md);
     text-decoration: none;
     color: hsl(var(--backdrop));
 }
@@ -582,3 +582,26 @@ table a {
 .Toastify__toast-body {
     font-size: var(--fs-300);
 }
+
+.form__container-btn {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.trash-btn {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trash-btn svg {
+    height: 50px;
+    width: 30px;
+}
+
