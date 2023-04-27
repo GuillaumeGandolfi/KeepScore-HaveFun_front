@@ -38,7 +38,7 @@ const ConnectionFormCustom = () => {
                 <img className="connectionFormLogo" src={Logo__3} alt="a colorfull game controller" />
                 <p className="connection-brand">Keep Score & Have Fun</p>
                 <div className="connectionForm__container-animation">
-                    {isLogged && <Navigate to={'/homepage'} replace={true} />}
+                    {isLogged && <Navigate to={'/app/homepage'} replace={true} />}
 
                         <div className="box">
                             <span className="borderline"></span>

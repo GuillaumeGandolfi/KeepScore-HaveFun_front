@@ -48,16 +48,13 @@ const router = createBrowserRouter([
     },
     {
       path:'/signin',
-      element: <ConnectionForm />
+      element: <ConnectionFormCustom />
     },
     {
       path:'/signup',
       element:<Inscription />
     },
-    {
-      path: '/custom',
-      element:<ConnectionFormCustom />
-    },
+   
 
     // ----- Pages avec header & footer -----
   {
