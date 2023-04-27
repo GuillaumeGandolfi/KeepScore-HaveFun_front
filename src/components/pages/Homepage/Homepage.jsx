@@ -2,7 +2,8 @@
 import Typed from 'typed.js';
 import { NavLink } from "react-router-dom"
 import React, { useState, useRef, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid'
 import './homepage.css'
 
 // Import svg - la main à côté du pseudo
@@ -11,18 +12,38 @@ import Hand from '../../../assets/icons/home__hand.svg'
 // Imports pour utiliser ChartJS en react avec le composant Doughnut
 import { Chart as ChartJS } from 'chart.js/auto'
 import { Doughnut } from 'react-chartjs-2';
+import { fetchDailyData, fetchMonthlyData, fetchWeeklyData, fetchYearlyData } from '../../../store/actions/fetchDataActions';
 
 
 
 const Homepage = () => {
-    // état pour stocker les données de chart actuellement affichées
-    const { id,  family, email, firstname, lastname, level, wallet,operations, friends, quests, items  } = useSelector(state => state.user)
-    const expenses = operations.reduce((accumulator, operations) => accumulator + operations.operation, 0 ) || 0
-    const labelList = operations.map(operation => operation.label)
 
+    
+    const dispatch = useDispatch()
+
+    useEffect(()=> {
+       dispatch(fetchDailyData())
+    }, [])
+    // état pour stocker les données de chart actuellement affichées
+    const { firstname,  level, wallet,budget, quests  } = useSelector(state => state.user)
+    // const expenses = operations.reduce((accumulator, operations) => accumulator + operations.operation, 0 ) || 0
+    // const labelList = operations.map(operation => operation.label)
+    const {daylyTransactions, weeklyTransactions, monthlyTransactions, yearlyTransactions} = useSelector(state => state.transactions)
+    const expenses = budget.reduce((allTotal, budget) => {
+        const sum = budget.operations.reduce((total, operations) => {
+          return total + operations.operation;
+        }, 0);
+        return allTotal + sum;
+      }, 0) || 0 ;
+    console.log(budget)
+    console.log(expenses)
+    console.log(weeklyTransactions.map(transaction => transaction.operation))
+    const totalBudget = budget.reduce((accumulator, budget) => {
+        return accumulator + budget.value
+    }, 0) || 0;
     // Données de démonstration
 const dailyData = {
-    labels: labelList || ['label'],
+    labels: ['label'],
     datasets: [{
         label: 'Dépenses journalières',
         data: [30, 20, 15],
@@ -31,10 +52,10 @@ const dailyData = {
 };
 
 const weeklyData = {
-    labels: ['Alimentation', 'Transport', 'Loisirs'],
+    labels: weeklyTransactions.map(transaction => transaction.label),
     datasets: [{
         label: 'Dépenses hebdomadaires',
-        data: [150, 100, 75],
+        data: weeklyTransactions.map(transaction => transaction.operation),
         backgroundColor: ['#FF6294', '#44C768', '#66ACFF']
     }]
 };
@@ -86,21 +107,26 @@ const yearlyData = {
         const selection = event.target.value;
         switch (selection) {
             case 'daily':
+                dispatch(fetchDailyData())
                 setChartData(dailyData);
                 break;
             case 'weekly':
+                dispatch(fetchWeeklyData())
                 setChartData(weeklyData);
                 break;
             case 'monthly':
+                dispatch(fetchMonthlyData())
                 setChartData(monthlyData);
                 break;
             case 'yearly':
+                dispatch(fetchYearlyData())
                 setChartData(yearlyData);
                 break;
             default:
                 break;
         }
     };
+   
 
     return (
         <div className="homepage__container">
@@ -120,12 +146,12 @@ const yearlyData = {
 
                         <div className="homepage__expenses">
                             <h2 className="homepage__expenses-title">Dépenses</h2>
-                            <h3 className="homepage__expenses-current">{expenses} sur {wallet} €</h3>
+                            <h3 className="homepage__expenses-current">{expenses} sur {totalBudget} €</h3>
                         </div>
 
                         <div className="homepage__budget">
                             <h2 className="homepage__expenses-title">Budget</h2>
-                            <h3 className="homepage__budget-current">Budget</h3>
+                            {budget && budget.map(specificbudget => <h3 key={uuidv4()} className="homepage__budget-current">{specificbudget.label} : {specificbudget.value}</h3> )}
                             <button className="homepage__expenses-link">Gérer son budget</button>
                         </div>
                     </div>

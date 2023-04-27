@@ -1,5 +1,5 @@
 import { SAVE_USER_INFO } from "../store/actions/userAction";
-
+import { DELETE_USER_INFO } from "../store/actions/userAction";
 
 // const expenses =
 //   operations.reduce(
@@ -9,24 +9,34 @@ import { SAVE_USER_INFO } from "../store/actions/userAction";
 // const labelList = operations.map((operation) => operation.label);
 
 const initialState = {
-  id:0,
-  family: {},
+  budget : [],
   email: '',
+  family: {},
   firstname: '',
+  id: 0,
   lastname: '',
   level: 0,
-  wallet: 0,
-  operations: [],
-  friends: [],
   quests: [],
-  items: [],
+  wallet: 0, 
 };
 
 const userReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SAVE_USER_INFO:
-      console.log(action.firstname)
-      return {...state, id: action.id,family: action.family,email: action.email,firstname: action.firstname,lastname: action.lastname,level:action.level, wallet:action.wallet, operations: action.operations, friends: action.friends, quests: action.quests, items: action.items}
+      return {
+        ...state,
+        budget: action.budget,
+        email: action.email,
+        family: action.family,
+        firstname: action.firstname,
+        id: action.id,
+        lastname: action. lastname,
+        level: action.level,
+        quests: action.quests,
+        wallet: action.wallet 
+      };
+    case DELETE_USER_INFO:
+      return { ...initialState };
     default:
       return state;
   }

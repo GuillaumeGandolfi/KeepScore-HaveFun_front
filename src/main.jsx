@@ -37,13 +37,13 @@ import ExpensesPage, {expensesAction, expensesLoader} from "./components/pages/B
 import BudgetPage, {budgetAction, budgetLoader} from "./components/pages/Budgetpage/pages/BudgetPage.jsx";
 import Layout from "./components/Layout.jsx";
 import ConnectionFormCustom from "./components/ConnectionFormCustom/connectionFormCustom.jsx";
-
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 const router = createBrowserRouter([
 
     // ----- Pages sans header, ni footer -----
     {
-      path:'/index',
+      path:'/',
       element:<Landing />
     },
     {
@@ -61,42 +61,45 @@ const router = createBrowserRouter([
 
     // ----- Pages avec header & footer -----
   {
-    path: '/',
+    path: '/app',
     element: <Layout />,
     errorElement: <Error />,
     children: [
       {
-        path: '/homepage',
-        element: <Homepage />
+        path: '/app/homepage',
+        element: <PrivateRoute>
+          <Homepage />
+        </PrivateRoute>
       },
       {
-        path: '/quests',
+        path: '/app/quests',
         element: <Questspage />
       },
       {
-        path: '/contact',
+        path: '/app/contact',
         element: <Contactpage />
       },
       {
-        path: '/friends',
+        path: '/app/friends',
         element: <Friendspage />
       },
       {
-        path: '/guilde',
+        path: '/app/guilde',
         element: <Guildepage />
       },
       {
-        path: '/shop',
+        path: '/app/shop',
         element: <Shoppage />
       },
       {
-        path:'/profil/1',
+        path:'/app/profil/1',
         element: <Profil />
       },
       {
-        path:'transaction',
+        path:'/app/transaction',
         element: <Transaction />
       },
+      
     ]
 },
 

@@ -12,7 +12,9 @@ import Diversity2Icon from '@mui/icons-material/Diversity2';
 import GroupWorkIcon from '@mui/icons-material/GroupWork';
 import EmailIcon from '@mui/icons-material/Email';
 import SavingsIcon from '@mui/icons-material/Savings';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { toggleHeader } from "../../store/actions/headerAction";
+import { deleteUserInfo } from "../../store/actions/userAction";
 
 
 const Header = () => {
@@ -20,6 +22,11 @@ const Header = () => {
     const dispatch = useDispatch()
     const handleClick = () => {
         dispatch(toggleHeader())
+    }
+
+    const handleLogout = () => {
+        dispatch(deleteUserInfo())
+        dispatch(logout())
     }
 
     return (
@@ -30,7 +37,7 @@ const Header = () => {
                 <div className={!isHidden ? "nav__menu show-menu" : "nav__menu"}>
                     <ul className="nav__list grid">
                         <li className="nav__item">
-                            <NavLink to="/homepage" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><HomeIcon /></div>Accueil</NavLink>
+                            <NavLink to="/app/homepage" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><HomeIcon /></div>Accueil</NavLink>
                         </li>
 
                         <li className="nav__item">
@@ -38,27 +45,31 @@ const Header = () => {
                         </li>
 
                         <li className="nav__item">
-                            <NavLink to="/quests" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><NewspaperIcon /></div>Quêtes</NavLink>
+                            <NavLink to="/app/quests" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><NewspaperIcon /></div>Quêtes</NavLink>
                         </li>
 
                         <li className="nav__item">
-                            <NavLink to="/shop" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><MonetizationOnIcon /></div>Magasin</NavLink>
+                            <NavLink to="/app/shop" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><MonetizationOnIcon /></div>Magasin</NavLink>
                         </li>
 
                         <li className="nav__item">
-                            <NavLink to="/guilde" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><GroupWorkIcon /></div>Guilde</NavLink>
+                            <NavLink to="/app/guilde" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><GroupWorkIcon /></div>Guilde</NavLink>
                         </li>
 
                         <li className="nav__item">
-                            <NavLink to="/friends" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><Diversity2Icon /></div>Amis</NavLink>
+                            <NavLink to="/app/friends" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><Diversity2Icon /></div>Amis</NavLink>
                         </li>
 
                         <li className="nav__item">
-                            <NavLink to="/profil/1" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><PersonOutlineIcon /></div>Profil</NavLink>
+                            <NavLink to="/app/profil/1" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><PersonOutlineIcon /></div>Profil</NavLink>
                         </li>
 
                         <li className="nav__item">
-                            <NavLink to="/contact" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><EmailIcon /></div>Contact</NavLink>
+                            <NavLink to="/app/contact" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><EmailIcon /></div>Contact</NavLink>
+                        </li>
+
+                        <li className="nav__item">
+                            <NavLink onClick={handleLogout} to="/" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><LogoutIcon /></div>Logout</NavLink>
                         </li>
                     </ul>
 
