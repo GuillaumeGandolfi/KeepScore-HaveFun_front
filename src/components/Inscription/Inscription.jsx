@@ -6,7 +6,7 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import  './inscription.css'
 
-import { getInputValue } from '../../store/actions/signUpAction';
+import { getInputValue, sendSignup } from '../../store/actions/signUpAction';
 import { useState } from 'react';
 
 
@@ -20,10 +20,7 @@ function Inscription() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Nom:', nom);
-    console.log('Prénom:', prenom);
-    console.log('Email:', email);
-    console.log('Mot de passe:', motdepasse);
+    dispatch(sendSignup(firstname,lastname,signUpEmailField,signUpPasswordField, confirmPassword))
   };
 
   return (
@@ -38,7 +35,7 @@ function Inscription() {
       <TextField onChange={handleChange} value={signUpPasswordField} id="signUpPasswordField" type={'password'} label="Mot de passe" variant="outlined" />
       <TextField onChange={handleChange} value={confirmPassword} id="confirmPassword" type={'password'} label="Confirmer le mot de passe" variant="outlined" />
           
-      <Button variant="contained" color="success" > Valider </Button>
+      <Button type='submit' variant="contained" color="success" > Valider </Button>
        
     </form>
 

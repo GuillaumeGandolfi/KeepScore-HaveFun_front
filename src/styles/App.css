@@ -127,7 +127,7 @@ textarea {
 }
 
 body {
-    background-color: var(--body-color);
+    background-color: #fff;
     color: var(--text-color);
 }
 

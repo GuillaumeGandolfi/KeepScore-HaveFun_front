@@ -13,6 +13,7 @@ const signupReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case GET_INPUT_VALUE:
       return { ...state, [action.name]: action.value };
+      
     default:
       return state;
   }

@@ -3,12 +3,12 @@ import { Navigate } from "react-router-dom";
 
 
 const PrivateRoute = ({
-    redirectPath = '/index',
+    redirectPath = '/',
     children,
   }) => {
-    const { isLogged } = useSelector(state => state.login)
     
-    if (!isLogged) {
+    
+    if (!localStorage.getItem('session')) {
       return <Navigate to={redirectPath} replace />;
     }
     return children;
