@@ -13,15 +13,15 @@ const Footer = () => {
                 <h1 className="footer__title">Keep Score & Have Fun</h1>
                     <ul className="footer__list">
                         <li>
-                            <NavLink to="/homepage" className="footer__link">Accueil</NavLink>
+                            <NavLink to="/app/homepage" className="footer__link">Accueil</NavLink>
                         </li>
 
                         <li>
-                            <NavLink to="#aboutus" className="footer__link">A propos</NavLink>
+                            <NavLink to="/app/aboutus" className="footer__link">A propos</NavLink>
                         </li>
 
                         <li>
-                            <NavLink to="#contact" className="footer__link">Contact</NavLink>
+                            <NavLink to="/app/contact" className="footer__link">Contact</NavLink>
                         </li>
                     </ul>
 

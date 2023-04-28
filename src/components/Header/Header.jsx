@@ -1,7 +1,15 @@
-
-import { NavLink } from "react-router-dom"
+// Import react
 import { useSelector, useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom"
+
+// Import de style
 import './header.css'
+
+// Import actions
+import { toggleHeader } from "../../store/actions/headerAction";
+import { deleteUserInfo } from "../../store/actions/userAction";
+
+// Imports d'icônes
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import CloseIcon from '@mui/icons-material/Close';
 import HomeIcon from '@mui/icons-material/Home';
@@ -13,9 +21,6 @@ import GroupWorkIcon from '@mui/icons-material/GroupWork';
 import EmailIcon from '@mui/icons-material/Email';
 import SavingsIcon from '@mui/icons-material/Savings';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { toggleHeader } from "../../store/actions/headerAction";
-import { deleteUserInfo } from "../../store/actions/userAction";
-
 
 const Header = () => {
     const { isHidden } = useSelector(state => state.utils)
@@ -32,7 +37,7 @@ const Header = () => {
     return (
         <header className="header">
             <nav className="nav container">
-                <a href="index.html" className="nav__logo logo__img"></a>
+                <a href="/app/homepage" className="nav__logo logo__img"></a>
 
                 <div className={!isHidden ? "nav__menu show-menu" : "nav__menu"}>
                     <ul className="nav__list grid">

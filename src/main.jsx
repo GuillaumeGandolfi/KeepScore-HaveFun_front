@@ -38,6 +38,7 @@ import BudgetPage, {budgetAction, budgetLoader} from "./components/pages/Budgetp
 import Layout from "./components/Layout.jsx";
 import ConnectionFormCustom from "./components/ConnectionFormCustom/connectionFormCustom.jsx";
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Aboutus from "./components/pages/Aboutuspage/Aboutus.jsx";
 
 const router = createBrowserRouter([
 
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       path:'/signup',
       element:<Inscription />
     },
+  {
+    path: '/app/aboutus',
+    element: <Aboutus />
+  },
    
 
     // ----- Pages avec header & footer -----
