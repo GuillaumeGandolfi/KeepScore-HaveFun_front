@@ -9,7 +9,7 @@ import utilsReducer from '../reducer/utilsReducer'
 import transactionsReducer from './transactionsReducer'
 import {
   shopReducer
-} from "../store/features/shopFeatures";
+} from "./shopReducer.js";
 
 const rootReducer = combineReducers({
   user: userReducer,

@@ -6,8 +6,8 @@ import { NavLink } from "react-router-dom"
 import './header.css'
 
 // Import actions
-import { toggleHeader } from "../../store/actions/headerAction";
-import { deleteUserInfo } from "../../store/actions/userAction";
+import { toggleHeader } from "../../actions/headerAction";
+import { deleteUserInfo } from "../../actions/userAction";
 
 // Imports d'icônes
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';

@@ -17,7 +17,7 @@ import {
   fetchMonthlyData,
   fetchWeeklyData,
   fetchYearlyData,
-} from "../../../store/actions/fetchDataActions";
+} from "../../../actions/fetchDataActions";
 import { DialerSip } from "@mui/icons-material";
 
 const Homepage = () => {

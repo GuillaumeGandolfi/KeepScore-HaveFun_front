@@ -1,4 +1,4 @@
-import { TOGGLE_HEADER } from "../store/actions/headerAction";
+import { TOGGLE_HEADER } from "../actions/headerAction";
 
 const initialState = {
   isHidden: true,

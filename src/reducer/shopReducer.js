@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { axiosPrivate } from '../../axios/axiosPrivate'
+import { axiosPrivate } from '../axios/axiosPrivate.js'
 
 const initialState = {
   products: [],

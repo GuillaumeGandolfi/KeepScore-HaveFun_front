@@ -1,7 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import authMiddleware from '../middlewares/authenticationMiddleware'
 import fetchDataMiddleware from '../middlewares/fetchDataMiddleware'
-import { applyMiddleware } from '@reduxjs/toolkit'
 import rootReducer from '../reducer/rootReducer'
 import signupMiddleware from '../middlewares/signupMiddleware'
 
