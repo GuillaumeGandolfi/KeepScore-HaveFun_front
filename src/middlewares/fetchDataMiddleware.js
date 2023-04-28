@@ -1,5 +1,5 @@
 
-import { FETCH_DAILY_DATA, FETCH_MONTHLY_DATA, FETCH_WEEKLY_DATA, FETCH_YEARLY_DATA, saveDaylyData, saveWeeklyData,saveMonthlyData,saveYearlyData } from "../store/actions/fetchDataActions";
+import { FETCH_DAILY_DATA, FETCH_MONTHLY_DATA, FETCH_WEEKLY_DATA, FETCH_YEARLY_DATA, saveDaylyData, saveWeeklyData,saveMonthlyData,saveYearlyData } from "../actions/fetchDataActions";
 import { axiosPrivate } from "../axios/axiosPrivate";
 
 

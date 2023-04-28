@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { ProductViews } from '../../ProductView/ProductView';
 
-import { getProducts } from '../../../store/features/shopFeatures'
+import { getProducts } from '../../../reducer/shopReducer.js'
 
 import './shoppage.css'
 

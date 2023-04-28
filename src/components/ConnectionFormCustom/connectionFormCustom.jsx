@@ -4,11 +4,11 @@ import {Navigate, NavLink} from "react-router-dom";
 import {
     changeEmailField,
     changePasswordField,
-} from "../../store/actions/actions";
+} from "../../actions/actions";
 import Logo__3 from '../../assets/Logo__3.png'
 import Footer from "../Footer/Footer.jsx";
 
-import { submitLogin } from "../../store/actions/authAction";
+import { submitLogin } from "../../actions/authAction";
 
 import './connectionFormCustom.css'
 

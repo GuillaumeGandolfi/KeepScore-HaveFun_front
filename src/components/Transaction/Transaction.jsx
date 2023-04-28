@@ -1,7 +1,7 @@
 import { TextField, Button } from "@mui/material"
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createTransaction } from "../../store/actions/Transactions";
+import { createTransaction } from "../../actions/Transactions";
 
 
 const Transaction = () => {

@@ -1,7 +1,7 @@
 import { axiosPublic } from "../axios/axiosPublic";
 import {
   SEND_SIGNUP,
-} from "../store/actions/signUpAction";
+} from "../actions/signUpAction";
 
 const signupMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
