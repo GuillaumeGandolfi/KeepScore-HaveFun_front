@@ -30,7 +30,7 @@ import Questspage from "./components/pages/Questspage/Questspage";
 import Contactpage from "./components/pages/Contactpage/Contactpage";
 import Friendspage from "./components/pages/Friendspage/Friendspage";
 import Guildepage from "./components/pages/Guildepage/Guildepage";
-import Shoppage from "./components/pages/Shoppage/Shoppage";
+import Shoppage from "./components/pages/ShopPage/ShopPage";
 import Error from "./components/pages/Error/Error";
 import Errordashboard from "./components/pages/Budgetpage/pages/Errordashboard.jsx";
 import ExpensesPage, {expensesAction, expensesLoader} from "./components/pages/Budgetpage/pages/ExpensesPage.jsx";
