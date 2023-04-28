@@ -19,19 +19,16 @@ import {
   fetchYearlyData,
 } from "../../../actions/fetchDataActions";
 import { DialerSip } from "@mui/icons-material";
+import { chartDataStructure } from "../../utils/chartDataStructure";
 
 const Homepage = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchDailyData());
-  }, []);
   // état pour stocker les données de chart actuellement affichées
-  const { firstname, level, wallet, budget, quests } = useSelector(
+  const { firstname, budget, quests } = useSelector(
     (state) => state.user
   );
-  // const expenses = operations.reduce((accumulator, operations) => accumulator + operations.operation, 0 ) || 0
-  // const labelList = operations.map(operation => operation.label)
+  
   const {
     daylyTransactions,
     weeklyTransactions,
@@ -49,57 +46,13 @@ const Homepage = () => {
     budget.reduce((accumulator, budget) => {
       return accumulator + budget.value;
     }, 0) || 0;
-  // Données de démonstration
 
+  const daylyData = chartDataStructure("dayly", daylyTransactions);
+  const weeklyData = chartDataStructure("weekly", weeklyTransactions);
+  const monthlyData = chartDataStructure("monthly", monthlyTransactions);
+  const yearlyData = chartDataStructure("yearly", yearlyTransactions);
 
-  const dailyData = {
-    labels: daylyTransactions?.map(transaction => transaction.label)||["Toujours pas de dépenses aujourd'hui ! Bravo"],
-    datasets: [
-      {
-        label: "Dépenses journalières",
-        data: daylyTransactions?.map(transaction => transaction.operation)||[0],
-        backgroundColor: ["#FF6294", "#44C768", "#66ACFF"],
-      },
-    ],
-  };
-  
-  const weeklyData = {
-    labels: weeklyTransactions.map((transaction) => transaction.label),
-    datasets: [
-      {
-        label: "Dépenses hebdomadaires",
-        data: weeklyTransactions.map((transaction) => transaction.operation),
-        backgroundColor: ["#FF6294", "#44C768", "#66ACFF"],
-      },
-    ],
-  };
-  
-  const monthlyData = {
-    labels: monthlyTransactions.map((transaction) => transaction.label),
-    datasets: [
-      {
-        label: "Dépenses mensuelles",
-        data: monthlyTransactions.map((transaction) => transaction.operation),
-        backgroundColor: ["#FF6294", "#44C768", "#66ACFF"],
-      },
-    ],
-  };
-  
-  const yearlyData = {
-    labels: yearlyTransactions.map((transaction) => transaction.label),
-    datasets: [
-      {
-        label: "Dépenses annuelles",
-        data: yearlyTransactions.map((transaction) => transaction.operation),
-        backgroundColor: ["#FF6294", "#44C768", "#66ACFF"],
-      },
-    ],
-  };
-
-
-  // {"id":6,"email":"john@johndoe.com","firstname":"john","lastname":"doe","password":"","level":1,"wallet":50,"created_at":"2023-04-23T16:12:47.765Z","updated_at":null,"family_id":1,"operations":[],"family":{"id":1,"name":"teamdevback","level":1,"created_at":"2023-04-23T16:12:47.765Z","updated_at":null},"friends":[],"quests":[],"items_collection":[]}
-
-  const [chartData, setChartData] = useState(dailyData);
+  const [chartData, setChartData] = useState(daylyData);
 
   const typedRef = useRef(null);
 
@@ -129,7 +82,7 @@ const Homepage = () => {
     switch (selection) {
       case "daily":
         dispatch(fetchDailyData());
-        setChartData(dailyData);
+        setChartData(daylyData);
         break;
       case "weekly":
         dispatch(fetchWeeklyData());
