@@ -6,6 +6,8 @@ import {useEffect, useRef} from "react";
 
 // Import de librairie(s)
 import { CurrencyEuroIcon } from "@heroicons/react/24/solid"
+import { useDispatch } from "react-redux";
+import { saveNewBudget } from "../../../../actions/fetchDataActions";
 
 const AddBudgetForm = () => {
     const fetcher = useFetcher();
@@ -32,6 +34,11 @@ const AddBudgetForm = () => {
             input.setCustomValidity("");
         }
     };
+    const dispatch = useDispatch()
+
+    const handleSaveNewBudget = (event) => {
+        dispatch(saveNewBudget())
+    }
 
     return (
         <div className="form-wrapper">
@@ -68,7 +75,7 @@ const AddBudgetForm = () => {
                     />
                 </div>
                 <input type="hidden" name="_action" value="createBudget"/>
-                <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
+                <button onClick={handleSaveNewBudget} type="submit" className="btn btn--dark" disabled={isSubmitting}>
                     {
                         isSubmitting ? <span>Création en cours</span> :
                         (

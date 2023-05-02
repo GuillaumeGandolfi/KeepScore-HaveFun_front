@@ -8,19 +8,21 @@ import { TrashIcon } from "@heroicons/react/24/solid";
 import {formatCurrency, formatDateToLocaleString, getAllMatchingItems,} from "../helpers/helpers.js";
 
 const ExpenseItem = ({ expense, showBudget }) => {
+    console.log(expense)
     const fetcher = useFetcher();
 
     const budget = getAllMatchingItems({
         category: "budgets",
         key: "id",
-        value: expense.budgetId,
+        value: expense.budget_id,
     })[0];
+   console.log('expenseitem-budget', budget)
 
     return (
         <>
             <td style={{verticalAlign: "middle"}}>{expense.name}</td>
             <td style={{verticalAlign: "middle"}}>{formatCurrency(expense.amount)}</td>
-            <td style={{verticalAlign: "middle"}}>{formatDateToLocaleString(expense.createdAt)}</td>
+            <td style={{verticalAlign: "middle"}}>{formatDateToLocaleString(expense.created_at)}</td>
             {showBudget && (
                 <td style={{verticalAlign: "middle"}}>
                     <Link

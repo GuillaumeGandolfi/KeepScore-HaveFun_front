@@ -16,7 +16,7 @@ const Intro = () => {
                 <p>
                     Maîtriser ton trésor de guerre, c'est être libre! Commence maintenant !
                 </p>
-                <Form method="post">
+                <Form method="post" action="/transaction">
                     <input type="text"
                            name="userName"
                            required placeholder="Quel est ton prénom?"

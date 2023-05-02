@@ -1,4 +1,6 @@
 
+import * as dayjs from 'dayjs'
+
 // rrd imports
 import { Form, Link } from "react-router-dom";
 
@@ -8,6 +10,7 @@ import { BanknotesIcon, TrashIcon } from "@heroicons/react/24/outline";
 import {calculateSpentByBudget, formatCurrency, formatPercentage} from "../helpers/helpers.js";
 
 const BudgetItem = ({ budget, showDelete = false }) => {
+    console.log('random', Math.random())
     const { id, name, amount, color } = budget;
     const spent = calculateSpentByBudget(id);
 

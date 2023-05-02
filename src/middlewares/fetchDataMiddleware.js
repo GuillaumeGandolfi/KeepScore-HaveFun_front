@@ -1,5 +1,5 @@
-
-import { FETCH_DAILY_DATA, FETCH_MONTHLY_DATA, FETCH_WEEKLY_DATA, FETCH_YEARLY_DATA, saveDaylyData, saveWeeklyData,saveMonthlyData,saveYearlyData } from "../actions/fetchDataActions";
+import * as dayjs from 'dayjs'
+import { FETCH_DAILY_DATA, FETCH_MONTHLY_DATA, FETCH_WEEKLY_DATA, FETCH_YEARLY_DATA,FETCH_BUDGETS,FETCH_EXPENSES,SAVE_NEW_BUDGET,SAVE_NEW_EXPENSE,  saveDaylyData, saveWeeklyData,saveMonthlyData,saveYearlyData } from "../actions/fetchDataActions";
 import { axiosPrivate } from "../axios/axiosPrivate";
 
 
@@ -56,6 +56,52 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
                         console.log(error)
                     })
                     break;
+                case FETCH_BUDGETS:
+                    axiosPrivate.get(`/budget-user/${id}`)
+                    .then((response) => {
+                        const budgets = response.data.map(budget =>({...budget, created_at: dayjs(budget.created_at).valueOf(), color:`${response.data.length * 34} 65% 50%`}))
+                        localStorage.setItem("budgets", JSON.stringify(budgets))
+                    })
+                    .catch((error)=>{
+                        console.log(error)
+                    })
+                    break;
+                case FETCH_EXPENSES:
+                    axiosPrivate.get(`/transactions/user/${id}`)
+                    .then((response)=>{
+                        const expenses = response.data.map(expense =>({...expense, created_at: dayjs(expense.created_at).valueOf()}))
+                        localStorage.setItem("expenses", JSON.stringify(expenses))
+                      
+                    })
+                    .catch((error)=>{
+                        console.log(error)
+                    })
+                    break;
+                case SAVE_NEW_BUDGET:
+                    const lastBudget = action.newItem
+                    axiosPrivate.post('/budget', {
+                        lastBudget
+                    })
+                    .then((response)=> {
+                        console.log(response)
+                    })
+                    .catch((error)=> {
+                        console.log(error)
+                    })
+                    break;
+                case SAVE_NEW_EXPENSE:
+                    const lastExpense = action.newItem;
+                    axiosPrivate.post('/transaction', {
+                        lastExpense
+                    })
+                    .then((response)=> {
+                        console.log(response)
+                    })
+                    .catch((error)=> {
+                        console.log(error)
+                    })
+                    break;
+
 
         default:
     }
