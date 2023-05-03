@@ -5,7 +5,7 @@ const Loading = () => {
 
 
     return(
-        <div className='container'>
+        <div className='coin-container'>
             <div className='coin' >
             <div className='face heads' ></div>
             <div className='face tails' ></div>

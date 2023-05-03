@@ -4,7 +4,7 @@ import { SUBMIT_LOGIN } from "../actions/authAction";
 import { saveSuccessfulAuth } from "../actions/authAction";
 import { CREATE_TRANSACTION } from "../actions/Transactions";
 import { saveUserInfo } from "../actions/userAction";
-import { saveDaylyData } from "../actions/fetchDataActions";
+import { fetchDailyData, fetchMonthlyData, fetchWeeklyData, fetchYearlyData, saveDaylyData, saveMonthlyData, saveWeeklyData, saveYearlyData } from "../actions/fetchDataActions";
 
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -49,7 +49,10 @@ const authMiddleware = (store) => (next) => (action) => {
             )
             
           );
-          store.dispatch(saveDaylyData)
+          store.dispatch(fetchDailyData())
+          store.dispatch(fetchWeeklyData())
+          store.dispatch(fetchMonthlyData())
+          store.dispatch(fetchYearlyData())
         })
         .catch((error) => {
           console.log(error);
