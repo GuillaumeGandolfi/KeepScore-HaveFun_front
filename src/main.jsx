@@ -38,6 +38,7 @@ import BudgetPage, {budgetAction, budgetLoader} from "./components/pages/Budgetp
 import Layout from "./components/Layout.jsx";
 import ConnectionFormCustom from "./components/ConnectionFormCustom/connectionFormCustom.jsx";
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+ import ProductDetail from './components/ProductDetailView/ProductDetailView';
 
 const router = createBrowserRouter([
 
@@ -87,6 +88,11 @@ const router = createBrowserRouter([
       {
         path: '/app/shop',
         element: <Shoppage />
+      },
+      
+      { 
+        path:'/app/shop/:productId/detail', 
+        element:<ProductDetail/>
       },
       {
         path:'/app/profil/1',
