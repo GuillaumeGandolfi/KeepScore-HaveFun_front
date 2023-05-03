@@ -31,7 +31,7 @@ const Intro = () => {
                     </button>
                 </Form>
             </div>
-            <img src={illustration} alt="Denver le dernier dinausore" width={700}/>
+            <img src={illustration} alt="Denver le dernier dinausore" width={650}/>
         </div>
     )
 }
