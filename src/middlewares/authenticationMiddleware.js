@@ -19,7 +19,6 @@ const authMiddleware = (store) => (next) => (action) => {
           const { data } = response;
           const { token, refreshToken } = data;
           const user = (data.responseWithoutPassword);
-          console.log(user)
           
           const {
             budget,

@@ -83,7 +83,7 @@ export function dashboardLoader () {
 
 const Dashboard = () => {
     const { userName } = useLoaderData();
-    const {budgets, expenses} = useSelector(state => state.budget)
+    const { budgets, expenses } = useSelector(state => state.budget)
 
 
     
