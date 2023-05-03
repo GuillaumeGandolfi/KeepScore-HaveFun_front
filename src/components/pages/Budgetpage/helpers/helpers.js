@@ -35,16 +35,13 @@ export const createBudget = ({
     name, amount
 }) => {
     const newItem = {
-        id: crypto.randomUUID(),
+        // id: crypto.randomUUID(),
         name: name,
         createdAt: Date.now(),
         amount: +amount,
         color: generateRandomColor()
     }
     store.dispatch(saveNewBudget(newItem))
-    const existingBudgets = fetchData("budgets") ?? [];
-    
-    return localStorage.setItem("budgets", JSON.stringify([...existingBudgets, newItem]))
      
 }
 
@@ -53,15 +50,13 @@ export const createExpense = ({
                                  name, amount, budgetId
                              }) => {
     const newItem = {
-        id: crypto.randomUUID(),
+        // id: crypto.randomUUID(),
         name: name,
         created_at: Date.now(),
         amount: +amount,
         budget_id: budgetId
     }
     store.dispatch(saveNewExpense(newItem))
-    const existingExpenses = fetchData("expenses") ?? [];
-    return localStorage.setItem("expenses", JSON.stringify([...existingExpenses, newItem]))
 }
 
 // Calcul du total dépensé par budget
