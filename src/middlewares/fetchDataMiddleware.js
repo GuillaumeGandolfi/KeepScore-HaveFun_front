@@ -97,10 +97,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
           lastBudget,
         })
         .then((response) => {
-          const budgets = response.data.map((budget) => ({
-            ...budget,
-            created_at: dayjs(budget.created_at).valueOf(),
-          }));
+          const budgets = response.data;
           localStorage.setItem("budgets", JSON.stringify(budgets));
           store.dispatch(saveBudgetsState(budgets));
         })
@@ -115,10 +112,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
           lastExpense,
         })
         .then((response) => {
-          const expenses = response.data.map((expense) => ({
-            ...expense,
-            created_at: dayjs(expense.created_at).valueOf(),
-          }));
+          const expenses = response.data;
           localStorage.setItem("expenses", JSON.stringify(expenses));
           store.dispatch(saveExpensesState(expenses));
         })
