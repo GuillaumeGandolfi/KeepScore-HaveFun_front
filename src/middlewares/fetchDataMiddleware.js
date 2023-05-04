@@ -25,6 +25,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
         .get(`/transactions/day`)
         .then((response) => {
           const daylyData = response.data;
+          localStorage.setItem("daylyData", JSON.stringify(daylyData));
           store.dispatch(saveDaylyData(daylyData));
         })
         .catch((error) => {
@@ -36,6 +37,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
         .get(`/transactions/week`)
         .then((response) => {
           const weeklyData = response.data;
+          localStorage.setItem("weeklyData", JSON.stringify(weeklyData));
           store.dispatch(saveWeeklyData(weeklyData));
         })
         .catch((error) => {
@@ -47,6 +49,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
         .get(`/transactions/month`)
         .then((response) => {
           const monthlyData = response.data;
+          localStorage.setItem("monthlyData", JSON.stringify(monthlyData));
           store.dispatch(saveMonthlyData(monthlyData));
         })
         .catch((error) => {
@@ -58,6 +61,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
         .get(`/transactions/year`)
         .then((response) => {
           const yearlyData = response.data;
+          localStorage.setItem("yearlyData", JSON.stringify(yearlyData));
           store.dispatch(saveYearlyData(yearlyData));
           console.log(yearlyData);
         })

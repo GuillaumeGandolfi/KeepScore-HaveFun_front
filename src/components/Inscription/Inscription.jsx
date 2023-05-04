@@ -9,11 +9,12 @@ import  './inscription.css'
 import illustration from '../../assets/budget/Denver.png';
 
 import { getInputValue, sendSignup } from '../../actions/signUpAction';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 function Inscription() {
-  const {firstname, lastname, signUpEmailField, signUpPasswordField, confirmPassword} = useSelector(state => state.signup)
+const navigate = useNavigate();
+  const {firstname, lastname, signUpEmailField, signUpPasswordField, confirmPassword, ok} = useSelector(state => state.signup)
   const dispatch = useDispatch()
 
   const handleChange = (event) => {
@@ -22,8 +23,9 @@ function Inscription() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(sendSignup(firstname,lastname,signUpEmailField,signUpPasswordField, confirmPassword))
+    dispatch(sendSignup(firstname,lastname,signUpEmailField,signUpPasswordField,confirmPassword))
   };
+
 
   return (
 
@@ -110,7 +112,7 @@ function Inscription() {
               </form>
               <img src={illustration} alt="Denver le dernier dinausore" width={800} className="signupForm__img"/>
           </div>
-
+        {ok && navigate('/signin', {replace: true})}
 
       </div>
     <Footer />

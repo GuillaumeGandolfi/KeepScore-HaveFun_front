@@ -21,7 +21,7 @@ import GroupWorkIcon from '@mui/icons-material/GroupWork';
 import EmailIcon from '@mui/icons-material/Email';
 import SavingsIcon from '@mui/icons-material/Savings';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { fetchBudgets, fetchExpenses } from "../../actions/fetchDataActions";
+import { fetchBudgets, fetchDailyData, fetchExpenses, fetchMonthlyData, fetchWeeklyData, fetchYearlyData } from "../../actions/fetchDataActions";
 
 const Header = () => {
     const { isHidden } = useSelector(state => state.utils)
@@ -29,9 +29,17 @@ const Header = () => {
     const handleClick = () => {
         dispatch(toggleHeader())
     }
+
     const handleFetch = () => {
         dispatch(fetchBudgets())
         dispatch(fetchExpenses())
+    }
+
+    const handleHomePageFetch = () => {
+        dispatch(fetchDailyData());
+        dispatch(fetchWeeklyData());
+        dispatch(fetchMonthlyData());
+        dispatch(fetchYearlyData());
     }
 
     const handleLogout = () => {
@@ -47,7 +55,7 @@ const Header = () => {
                 <div className={!isHidden ? "nav__menu show-menu" : "nav__menu"}>
                     <ul className="nav__list grid">
                         <li className="nav__item">
-                            <NavLink to="/app/homepage" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><HomeIcon /></div>Accueil</NavLink>
+                            <NavLink onClick={handleHomePageFetch} to="/app/homepage" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><HomeIcon /></div>Accueil</NavLink>
                         </li>
 
                         <li className="nav__item">

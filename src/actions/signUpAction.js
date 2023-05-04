@@ -1,6 +1,7 @@
 export const GET_INPUT_VALUE = 'GET_INPUT_VALUE';
 // export const SUBMIT_SIGNUP   = 'SUBMIT_SIGNUP'
 export const SEND_SIGNUP = 'SIGNUP';
+export const SUCCESSFUL_SIGNUP = 'SUCCESSFUL_SIGNUP';
 
 export const getInputValue = (name, value) => ({
     type:GET_INPUT_VALUE,
@@ -19,4 +20,8 @@ export const sendSignup = (firstname, lastname, email, password, confirmation) =
     email,
     password,
     confirmation,
+})
+
+export const successfulSignup = () => ({
+    type:SUCCESSFUL_SIGNUP,
 })

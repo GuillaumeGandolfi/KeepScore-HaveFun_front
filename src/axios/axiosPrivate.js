@@ -1,7 +1,6 @@
-
 import axios from "axios";
 
-import { memoizedRefreshToken } from "./refreshToken"; 
+import { memoizedRefreshToken } from "./refreshToken";
 
 axios.defaults.baseURL = "https://avid-addition-production.up.railway.app";
 
@@ -13,9 +12,7 @@ axios.interceptors.request.use(
       config.headers = {
         ...config.headers,
         authorization: `Bearer ${session?.token}`,
-        
       };
-      console.log(config.headers)
     }
 
     return config;
@@ -24,26 +21,26 @@ axios.interceptors.request.use(
 );
 
 axios.interceptors.response.use(
-    (response) => response,
-    async (error) => {
-      const config = error?.config;
-  
-      if (error?.response?.status === 401 && !config?.sent) {
-        config.sent = true;
-  
-        const result = await memoizedRefreshToken();
-  
-        if (result?.accessToken) {
-          config.headers = {
-            ...config.headers,
-            authorization: `Bearer ${result?.accessToken}`,
-          };
-        }
-  
-        return axios(config);
+  (response) => response,
+  async (error) => {
+    const config = error?.config;
+
+    if (error?.response?.status === 401 && !config?.sent) {
+      config.sent = true;
+
+      const result = await memoizedRefreshToken();
+
+      if (result?.accessToken) {
+        config.headers = {
+          ...config.headers,
+          authorization: `Bearer ${result?.accessToken}`,
+        };
       }
-      return Promise.reject(error);
+
+      return axios(config);
     }
-  );
-  
-  export const axiosPrivate = axios;
+    return Promise.reject(error);
+  }
+);
+
+export const axiosPrivate = axios;

@@ -25,7 +25,9 @@ const Homepage = () => {
   const dispatch = useDispatch();
 
   // état pour stocker les données de chart actuellement affichées
-  const { firstname, budget, quests } = useSelector((state) => state.user);
+  const { firstname } = JSON.parse(localStorage.getItem("user")) || "";
+  const { budgets } = useSelector((state) => state.budget);
+  const { expenses } = useSelector((state) => state.budget);
 
   const {
     daylyTransactions,
@@ -33,15 +35,21 @@ const Homepage = () => {
     monthlyTransactions,
     yearlyTransactions,
   } = useSelector((state) => state.transactions);
-  const expenses =
-    budget.reduce((allTotal, budget) => {
-      const sum = budget.operations.reduce((total, operations) => {
-        return total + Number.parseFloat(operations.amount);
-      }, 0);
-      return allTotal + sum;
-    }, 0) || 0;
+  // if (!yearlyTransactions.length) {
+  //   const dailyTransactions = localStorage.getItem("dailyTransactions");
+  //   const weeklyTransactions = localStorage.getItem("weeklyTransactions");
+  //   const monthlyTransactions = localStorage.getItem("monthlyTransactions");
+  //   const yearlyTransactions = localStorage.getItem("yearlyTransactions");
+  //   return {dailyTransactions, weeklyTransactions, monthlyTransactions,yearlyTransactions}
+  // }
+  const expensesSum =
+    expenses.reduce((total, expense) => {
+     
+        return total + Number.parseFloat(expense.amount);
+      }, 0) || 0;
+     
   const totalBudget =
-    budget.reduce((accumulator, budget) => {
+    budgets.reduce((accumulator, budget) => {
       return Number.parseFloat(accumulator + budget.amount);
     }, 0) || 0;
 
@@ -113,14 +121,14 @@ const Homepage = () => {
             <div className="homepage__expenses">
               <h2 className="homepage__expenses-title">Dépenses</h2>
               <h3 className="homepage__expenses-current">
-                {expenses} sur {totalBudget} €
+                {expensesSum} sur {totalBudget} €
               </h3>
             </div>
 
             <div className="homepage__budget">
               <h2 className="homepage__expenses-title">Budget</h2>
-              {budget &&
-                budget.map((specificbudget) => (
+              {budgets &&
+                budgets.map((specificbudget) => (
                   <h3 key={uuidv4()} className="homepage__budget-current">
                     {specificbudget.name} : {specificbudget.amount}€
                   </h3>

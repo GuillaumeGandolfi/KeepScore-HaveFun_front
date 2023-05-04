@@ -1,7 +1,6 @@
 import { axiosPublic } from "../axios/axiosPublic";
-import {
-  SEND_SIGNUP,
-} from "../actions/signUpAction";
+import { SEND_SIGNUP } from "../actions/signUpAction";
+import { successfulSignup } from "../actions/signUpAction";
 
 const signupMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -15,17 +14,16 @@ const signupMiddleware = (store) => (next) => (action) => {
       } = store.getState().signup;
       axiosPublic
         .post("/user", {
-          email : signUpEmailField,
+          email: signUpEmailField,
           firstname,
           lastname,
-          password : signUpPasswordField,
-          confirmation : confirmPassword,
+          password: signUpPasswordField,
+          confirmation: confirmPassword,
         })
         .then((response) => {
-          
-          console.log(response);
+          store.dispatch(successfulSignup());
 
-         
+          console.log(response);
         })
         .catch((error) => {
           console.log(error);
