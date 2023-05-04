@@ -38,7 +38,9 @@ import BudgetPage, {budgetAction, budgetLoader} from "./components/pages/Budgetp
 import Layout from "./components/Layout.jsx";
 import ConnectionFormCustom from "./components/ConnectionFormCustom/connectionFormCustom.jsx";
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+
  import ProductDetail from './components/ProductDetailView/ProductDetailView';
+
 import Aboutus from "./components/pages/Aboutuspage/Aboutus.jsx";
 
 const router = createBrowserRouter([
