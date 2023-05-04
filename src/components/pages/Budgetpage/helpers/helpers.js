@@ -67,7 +67,7 @@ export const calculateSpentByBudget = (budget_id) => {
         // Vérification si la expense.id (l'id de la dépense) === budgetId (l'id du budget) qui a été entrée
         if(expense.budget_id != budget_id) return acc
         // Ajout du montant courant au total
-        return acc += expense.amount
+        return acc += Number.parseFloat(expense.amount)
     }, 0)
     return budgetSpent;
 }

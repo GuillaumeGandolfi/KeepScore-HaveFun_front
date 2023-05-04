@@ -38,13 +38,13 @@ const Homepage = () => {
   const expenses =
     budget.reduce((allTotal, budget) => {
       const sum = budget.operations.reduce((total, operations) => {
-        return total + operations.operation;
+        return total + operations.amount;
       }, 0);
       return allTotal + sum;
     }, 0) || 0;
   const totalBudget =
     budget.reduce((accumulator, budget) => {
-      return accumulator + budget.value;
+      return accumulator + budget.amount;
     }, 0) || 0;
 
   const daylyData = chartDataStructure("dayly", daylyTransactions);

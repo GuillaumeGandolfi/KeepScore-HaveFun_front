@@ -27,7 +27,7 @@ const AddBudgetForm = () => {
 
     const handleBudgetAmountChange = (event) => {
         const input = event.target;
-        const value = parseFloat(input.value);
+        const value = Number.parseFloat(input.value);
         if (value < 0) {
             input.setCustomValidity("Le montant doit être positif");
         } else {
