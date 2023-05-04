@@ -12,7 +12,7 @@ const landingBoxStyles = {
   marginTop: 'auto',
   marginLeft: 'auto',
   top: '25%',
-  left: '30%' 
+  left: '35%'
 }
 
 function LandingPage() {

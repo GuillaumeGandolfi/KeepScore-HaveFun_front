@@ -8,14 +8,14 @@
 }
 
 .connectionFormLogo {
-    width: 24%;
-    height: 24%;
+    width: 15%;
+    height: 15%;
 }
 
 .connection-brand {
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
     font-family: var(--pixel-font);
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .connectionForm__container {
@@ -23,15 +23,15 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        min-height: 80vh;
+        min-height: 78vh;
         background: #fff;
-        padding-bottom: 5rem;
+        padding-bottom: .5rem;
 }
 
 .box {
     position: relative;
-    width: 500px;
-    height: 600px;
+    width: 400px;
+    height: 530px;
     background: #fff;
     border-radius: 8px;
     padding: 12rem;
@@ -124,12 +124,12 @@
     font-weight: 500;
     text-align: center;
     letter-spacing: 0.1em;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .box form .inputBox {
     position: relative;
-    margin-top: 35px;
+    margin-top: 1.2rem;
 }
 
 .box form .inputBox input {
