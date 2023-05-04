@@ -18,7 +18,7 @@ function ShoppingPage() {
      return (
         <Container sx={{ py: 8 }} maxWidth="md">
          <Grid container spacing={4}>
-            {products.map(item => <ProductViews key={item.id} />)}
+            {products.map(item => <ProductViews productId={item.id} key={item.id} />)}
             </Grid>
         </Container> 
     );
