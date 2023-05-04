@@ -17,12 +17,12 @@ import { axiosPrivate } from "../axios/axiosPrivate";
 import { saveBudgetsState, saveExpensesState } from "../actions/budgetActions";
 
 const fetchDataMiddleware = (store) => (next) => (action) => {
-  const { id } = localStorage.getItem("user") === null ? 0 : JSON.parse(localStorage.getItem("user"));
+
 
   switch (action.type) {
     case FETCH_DAILY_DATA:
       axiosPrivate
-        .get(`/transaction/day/${id}`)
+        .get(`/transaction/day`)
         .then((response) => {
           const daylyData = response.data;
           store.dispatch(saveDaylyData(daylyData));
@@ -33,7 +33,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
       break;
     case FETCH_WEEKLY_DATA:
       axiosPrivate
-        .get(`/transaction/week/${id}`)
+        .get(`/transaction/week`)
         .then((response) => {
           const weeklyData = response.data;
           store.dispatch(saveWeeklyData(weeklyData));
@@ -44,7 +44,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
       break;
     case FETCH_MONTHLY_DATA:
       axiosPrivate
-        .get(`/transaction/month/${id}`)
+        .get(`/transaction/month`)
         .then((response) => {
           const monthlyData = response.data;
           store.dispatch(saveMonthlyData(monthlyData));
@@ -55,7 +55,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
       break;
     case FETCH_YEARLY_DATA:
       axiosPrivate
-        .get(`/transaction/year/${id}`)
+        .get(`/transaction/year`)
         .then((response) => {
           const yearlyData = response.data;
           store.dispatch(saveYearlyData(yearlyData));
@@ -67,7 +67,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
       break;
     case FETCH_BUDGETS:
       axiosPrivate
-        .get(`/budget-user/${id}`)
+        .get(`/budget-user`)
         .then((response) => {
           const budgets = response.data.map((budget) => ({
             ...budget,
@@ -84,7 +84,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
       break;
     case FETCH_EXPENSES:
       axiosPrivate
-        .get(`/transactions/user/${id}`)
+        .get(`/transactions/user`)
         .then((response) => {
           const expenses = response.data.map((expense) => ({
             ...expense,
