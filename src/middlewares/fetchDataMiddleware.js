@@ -22,7 +22,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_DAILY_DATA:
       axiosPrivate
-        .get(`/transaction/day`)
+        .get(`/transactions/day`)
         .then((response) => {
           const daylyData = response.data;
           store.dispatch(saveDaylyData(daylyData));
@@ -33,7 +33,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
       break;
     case FETCH_WEEKLY_DATA:
       axiosPrivate
-        .get(`/transaction/week`)
+        .get(`/transactions/week`)
         .then((response) => {
           const weeklyData = response.data;
           store.dispatch(saveWeeklyData(weeklyData));
@@ -44,7 +44,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
       break;
     case FETCH_MONTHLY_DATA:
       axiosPrivate
-        .get(`/transaction/month`)
+        .get(`/transactions/month`)
         .then((response) => {
           const monthlyData = response.data;
           store.dispatch(saveMonthlyData(monthlyData));
@@ -55,7 +55,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
       break;
     case FETCH_YEARLY_DATA:
       axiosPrivate
-        .get(`/transaction/year`)
+        .get(`/transactions/year`)
         .then((response) => {
           const yearlyData = response.data;
           store.dispatch(saveYearlyData(yearlyData));
