@@ -1,21 +1,17 @@
-import { Grid, Container,  } from '@mui/material';
+import { Grid, Container  } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { ProductViews } from '../../ProductView/ProductView';
+import { fetchShopsData } from '../../../store/actions/fetchShopsDataActions';
+import { ProductViews } from '../../ProductView/ProductView'; 
 
-import { getProducts } from '../../../reducer/shopReducer.js'
+import './shopsPage.css' 
 
-import './shoppage.css'
-
-
-
-function shoppingPage() {
-    const dispatch = useDispatch()
-    const { products, loading } = useSelector((state) => state.shops)
-
-    useEffect(() => {
-      dispatch(getProducts())
-    }, [])
+function ShoppingPage() {
+   const dispatch = useDispatch() 
+    const {products, loading} = useSelector(state => state.shops)
+   useEffect(() => {
+    dispatch(fetchShopsData());
+  }, []);
  
     if (loading) return <p>Loading...</p>
 
@@ -24,9 +20,8 @@ function shoppingPage() {
          <Grid container spacing={4}>
             {products.map(item => <ProductViews key={item.id} />)}
             </Grid>
-        </Container>
+        </Container> 
     );
 }
 
-
-export default shoppingPage;
+export default ShoppingPage;
