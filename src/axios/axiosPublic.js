@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const axiosPublic = axios.create({
-    baseURL: "https://projet-09-keep-score-and-have-fun-back.vercel.app/",
+    baseURL: "http://localhost:3000",
     headers: {
         "Content-Type": "application/json"
     },
