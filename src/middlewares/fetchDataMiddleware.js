@@ -17,7 +17,7 @@ import { axiosPrivate } from "../axios/axiosPrivate";
 import { saveBudgetsState, saveExpensesState } from "../actions/budgetActions";
 
 const fetchDataMiddleware = (store) => (next) => (action) => {
-  const { id } = JSON.parse(localStorage.getItem("user")) || 0;
+  const { id } = localStorage.getItem("use") === null ? 0 : JSON.parse(localStorage.getItem("user"));
 
   switch (action.type) {
     case FETCH_DAILY_DATA:
