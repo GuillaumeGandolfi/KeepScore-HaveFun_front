@@ -1,10 +1,10 @@
 
-import { SAVE_SUCCESSFUL_AUTH } from "../store/actions/authAction";
+import { SAVE_SUCCESSFUL_AUTH } from "../actions/authAction";
 import {
   CHANGE_EMAIL_FIELD,
   CHANGE_PASSWORD_FIELD,
-} from "../store/actions/actions";
-import { LOGOUT } from '../store/actions/logoutAction'
+} from "../actions/actions";
+import { LOGOUT } from '../actions/logoutAction'
 
 const initialState = {
   isLogged: false,

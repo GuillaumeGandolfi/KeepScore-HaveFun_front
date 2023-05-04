@@ -1,5 +1,5 @@
-import { SAVE_USER_INFO } from "../store/actions/userAction";
-import { DELETE_USER_INFO } from "../store/actions/userAction";
+import { SAVE_USER_INFO } from "../actions/userAction";
+import { DELETE_USER_INFO } from "../actions/userAction";
 
 // const expenses =
 //   operations.reduce(

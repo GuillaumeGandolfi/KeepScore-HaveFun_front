@@ -1,9 +1,10 @@
 import { axiosPrivate } from "../axios/axiosPrivate";
 import { axiosPublic } from "../axios/axiosPublic";
-import { SUBMIT_LOGIN } from "../store/actions/authAction";
-import { saveSuccessfulAuth } from "../store/actions/authAction";
-import { CREATE_TRANSACTION } from "../store/actions/Transactions";
-import { saveUserInfo } from "../store/actions/userAction";
+import { SUBMIT_LOGIN } from "../actions/authAction";
+import { saveSuccessfulAuth } from "../actions/authAction";
+import { CREATE_TRANSACTION } from "../actions/Transactions";
+import { saveUserInfo } from "../actions/userAction";
+import { fetchDailyData, fetchMonthlyData, fetchWeeklyData, fetchYearlyData, saveDaylyData, saveMonthlyData, saveWeeklyData, saveYearlyData } from "../actions/fetchDataActions";
 
 const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -46,7 +47,12 @@ const authMiddleware = (store) => (next) => (action) => {
               quests,
               wallet 
             )
+            
           );
+          store.dispatch(fetchDailyData())
+          store.dispatch(fetchWeeklyData())
+          store.dispatch(fetchMonthlyData())
+          store.dispatch(fetchYearlyData())
         })
         .catch((error) => {
           console.log(error);

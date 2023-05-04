@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { memoizedRefreshToken } from "./refreshToken"; 
 
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "https://projet-09-keep-score-and-have-fun-back.vercel.app/";
 
 axios.interceptors.request.use(
   async (config) => {

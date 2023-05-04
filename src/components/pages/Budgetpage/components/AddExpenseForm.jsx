@@ -17,6 +17,16 @@ const AddExpenseForm = ({ budgets }) => {
         }
     }, [isSubmitting])
 
+    const handleExpenseAmountChange = (event) => {
+        const input = event.target;
+        const value = parseFloat(input.value);
+        if (value < 0) {
+            input.setCustomValidity("Le montant doit être positif");
+        } else {
+            input.setCustomValidity("");
+        }
+    };
+
     return (
         <div className="form-wrapper">
             <h2 className="h3">{" "}<span className="accent">{budgets.length === 1 && `${budgets.map((budg) => budg.name)}`}</span>{" "}Ajouter une dépense</h2>
@@ -47,6 +57,7 @@ const AddExpenseForm = ({ budgets }) => {
                             id="newExpenseAmount"
                             placeholder="ex: 2.50"
                             required
+                            onChange={handleExpenseAmountChange}
                         />
                     </div>
                 </div>

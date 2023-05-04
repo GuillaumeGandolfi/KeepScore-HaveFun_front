@@ -1,4 +1,4 @@
-import { GET_INPUT_VALUE } from "../store/actions/signUpAction.js";
+import { GET_INPUT_VALUE } from "../actions/signUpAction.js";
 
 
 const initialState = {

@@ -6,7 +6,7 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import  './inscription.css'
 
-import { getInputValue, sendSignup } from '../../store/actions/signUpAction';
+import { getInputValue, sendSignup } from '../../actions/signUpAction';
 import { useState } from 'react';
 
 
