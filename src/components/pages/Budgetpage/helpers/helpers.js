@@ -1,3 +1,6 @@
+
+import { saveNewBudget, saveNewExpense } from '../../../../actions/fetchDataActions';
+import store from '../../../../store/store'
 export const waait = () => new Promise(res => setTimeout(res, Math.random() * 800))
 
 // Générateur de couleur aléatoire
@@ -14,7 +17,7 @@ export const fetchData = (key) => {
 // Récupérer tous les items du stockage local
 export const getAllMatchingItems = ({ category, key, value }) => {
     const data = fetchData(category) ?? [];
-    return data.filter((item) => item[key] === value);
+    return data.filter((item) => item[key] === parseInt(value));
 };
 
 // Suppression d'un item du stockage local
@@ -32,14 +35,14 @@ export const createBudget = ({
     name, amount
 }) => {
     const newItem = {
-        id: crypto.randomUUID(),
+        // id: crypto.randomUUID(),
         name: name,
         createdAt: Date.now(),
         amount: +amount,
         color: generateRandomColor()
     }
-    const existingBudgets = fetchData("budgets") ?? [];
-    return localStorage.setItem("budgets", JSON.stringify([...existingBudgets, newItem]))
+    store.dispatch(saveNewBudget(newItem))
+     
 }
 
 // création d'une dépense
@@ -47,23 +50,22 @@ export const createExpense = ({
                                  name, amount, budgetId
                              }) => {
     const newItem = {
-        id: crypto.randomUUID(),
+        // id: crypto.randomUUID(),
         name: name,
-        createdAt: Date.now(),
+        created_at: Date.now(),
         amount: +amount,
-        budgetId: budgetId
+        budget_id: budgetId
     }
-    const existingExpenses = fetchData("expenses") ?? [];
-    return localStorage.setItem("expenses", JSON.stringify([...existingExpenses, newItem]))
+    store.dispatch(saveNewExpense(newItem))
 }
 
 // Calcul du total dépensé par budget
-export const calculateSpentByBudget = (budgetId) => {
+export const calculateSpentByBudget = (budget_id) => {
     // On prend notre budget avec "budgetId"
     const expenses = fetchData("expenses") ?? [];
     const budgetSpent = expenses.reduce((acc, expense) => {
         // Vérification si la expense.id (l'id de la dépense) === budgetId (l'id du budget) qui a été entrée
-        if(expense.budgetId != budgetId) return acc
+        if(expense.budget_id != budget_id) return acc
         // Ajout du montant courant au total
         return acc += expense.amount
     }, 0)

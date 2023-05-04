@@ -8,6 +8,7 @@ import userReducer from '../reducer/userReducer'
 import utilsReducer from '../reducer/utilsReducer'
 import transactionsReducer from './transactionsReducer'
 import shopsReducer from "./shopsReducer";
+import budgetReducer from "./budgetReducer";
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   signup: signupReducer,
   utils: utilsReducer,
   transactions: transactionsReducer,
-  shops: shopsReducer
+  shops: shopsReducer,
+  budget: budgetReducer,
 })
 
 

@@ -85,7 +85,6 @@ const Profil = () => {
         </div>
         <div className="profil-modify-container"></div>
       </div>
-      <Footer />
     </div>
   );
 };

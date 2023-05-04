@@ -13,11 +13,11 @@ export const chartDataStructure = (period, data) => {
 
         }
         return {
-        labels:data? data.map(transaction => transaction.label):["Toujours pas de dépenses aujourd'hui ! Bravo"],
+        labels:data? data.map(transaction => transaction.name):["Toujours pas de dépenses aujourd'hui ! Bravo"],
         datasets: [
           {
             label:getPeriodLabel(period) ,
-            data:data? data.map(transaction => transaction.operation):[0],
+            data:data? data.map(transaction => transaction.amount):[0],
             backgroundColor: ["#FF6294", "#44C768", "#66ACFF"],
           },
         ],

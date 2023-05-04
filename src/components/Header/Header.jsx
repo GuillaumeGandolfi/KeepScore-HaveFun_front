@@ -21,12 +21,17 @@ import GroupWorkIcon from '@mui/icons-material/GroupWork';
 import EmailIcon from '@mui/icons-material/Email';
 import SavingsIcon from '@mui/icons-material/Savings';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { fetchBudgets, fetchExpenses } from "../../actions/fetchDataActions";
 
 const Header = () => {
     const { isHidden } = useSelector(state => state.utils)
     const dispatch = useDispatch()
     const handleClick = () => {
         dispatch(toggleHeader())
+    }
+    const handleFetch = () => {
+        dispatch(fetchBudgets())
+        dispatch(fetchExpenses())
     }
 
     const handleLogout = () => {
@@ -46,7 +51,7 @@ const Header = () => {
                         </li>
 
                         <li className="nav__item">
-                            <NavLink to="/budget" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><SavingsIcon /></div>Budget</NavLink>
+                            <NavLink onClick={handleFetch} to="/budget" className={({ isActive }) => isActive ? "nav__link nav__link-active" : "nav__link"}><div className="nav__icon"><SavingsIcon /></div>Budget</NavLink>
                         </li>
 
                         <li className="nav__item">

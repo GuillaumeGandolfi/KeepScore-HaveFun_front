@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../style/dashboard.css';
 
 // Import de React Router DOM
@@ -16,6 +16,7 @@ import Table from "../components/Table.jsx";
 // Import de librairie(s)
 import {toast} from "react-toastify";
 import BudgetItem from "../components/BudgetItem.jsx";
+import { useSelector } from 'react-redux';
 
 
 // Action
@@ -81,7 +82,11 @@ export function dashboardLoader () {
 }
 
 const Dashboard = () => {
-    const { userName, budgets, expenses } = useLoaderData()
+    const { userName } = useLoaderData();
+    const { budgets, expenses } = useSelector(state => state.budget)
+
+
+    
 
     return (
             <>

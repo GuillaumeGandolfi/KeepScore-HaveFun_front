@@ -6,6 +6,10 @@ export const SAVE_DAILY_TRANSACTIONS  = 'SAVE_DAILY_TRANSACTIONS';
 export const SAVE_WEEKLY_TRANSACTIONS  = 'SAVE_WEEKLY_TRANSACTIONS';
 export const SAVE_MONTHLY_TRANSACTIONS  = 'SAVE_MONTHLY_TRANSACTIONS';
 export const SAVE_YEARLY_TRANSACTIONS  = 'SAVE_YEARLY_TRANSACTIONS';
+export const FETCH_BUDGETS = 'FETCH_BUDGETS';
+export const FETCH_EXPENSES ='FETCH_EXPENSES';
+export const SAVE_NEW_BUDGET ='SAVE_NEW_BUDGET';
+export const SAVE_NEW_EXPENSE = 'SAVE_NEW_EXPENSE';
 
 
 export const fetchWeeklyData = () => ({
@@ -41,4 +45,24 @@ export const fetchYearlyData = () => ({
 export const saveYearlyData = (yearlyData) => ({
     type:SAVE_YEARLY_TRANSACTIONS,
     yearlyData,
+})
+
+
+export const fetchBudgets = () => ({
+    type: FETCH_BUDGETS
+})
+
+export const fetchExpenses = () => ({
+    type: FETCH_EXPENSES
+})
+
+export const saveNewBudget = (newItem) => ({
+    type: SAVE_NEW_BUDGET,
+    newItem
+    
+})
+
+export const saveNewExpense = (newItem) => ({
+    type: SAVE_NEW_EXPENSE,
+    newItem
 })

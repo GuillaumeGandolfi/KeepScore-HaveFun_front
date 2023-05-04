@@ -51,7 +51,7 @@ const ConnectionFormCustom = () => {
                                         onChange={handleChange}
                                         value={email}
                                         id="email"
-                                        label="email"
+                                        aria-label="email"
                                     />
                                         <span>Identifiant</span>
                                         <i></i>

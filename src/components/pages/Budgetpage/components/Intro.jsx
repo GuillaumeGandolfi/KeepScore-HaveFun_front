@@ -16,7 +16,7 @@ const Intro = () => {
                 <p>
                     Maîtriser ton trésor de guerre, c'est être libre! Commence maintenant !
                 </p>
-                <Form method="post">
+                <Form method="post" >
                     <input type="text"
                            name="userName"
                            required placeholder="Quel est ton prénom?"
@@ -31,7 +31,7 @@ const Intro = () => {
                     </button>
                 </Form>
             </div>
-            <img src={illustration} alt="Denver le dernier dinausore" width={700}/>
+            <img src={illustration} alt="Denver le dernier dinausore" width={650}/>
         </div>
     )
 }

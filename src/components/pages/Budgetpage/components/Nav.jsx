@@ -21,7 +21,7 @@ const Nav = ({ userName }) => {
             {
                 userName && (
                     <Form
-                        metho="post"
+                        method="post"
                         action="logout"
                         className="dashboard__logout"
                         onSubmit={async (event) => {
