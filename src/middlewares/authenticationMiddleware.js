@@ -67,22 +67,6 @@ const authMiddleware = (store) => (next) => (action) => {
        
         
       break;
-    case CREATE_TRANSACTION:
-
-      const { id } = store.getState().user;
-
-      axiosPrivate
-        .post("/transaction", {
-          label: action.label,
-          operation: action.transaction,
-          user_id: id,
-        })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
     default:
   }
 
