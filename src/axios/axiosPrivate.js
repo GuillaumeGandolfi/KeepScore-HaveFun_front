@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { memoizedRefreshToken } from "./refreshToken"; 
 
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "http://localhost:3000/";
 
 axios.interceptors.request.use(
   async (config) => {
