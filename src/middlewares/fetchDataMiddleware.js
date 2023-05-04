@@ -17,7 +17,7 @@ import { axiosPrivate } from "../axios/axiosPrivate";
 import { saveBudgetsState, saveExpensesState } from "../actions/budgetActions";
 
 const fetchDataMiddleware = (store) => (next) => (action) => {
-  const { id } = JSON.parse(localStorage.getItem("user"));
+  const { id } = localStorage.getItem("user") === null ? 0 : JSON.parse(localStorage.getItem("user"));
 
   switch (action.type) {
     case FETCH_DAILY_DATA:
@@ -72,7 +72,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
           const budgets = response.data.map((budget) => ({
             ...budget,
             created_at: dayjs(budget.created_at).valueOf(),
-            color: `${response.data.length * 34} 65% 50%`,
+            //color: `${response.data.length * 34} 65% 50%`,
           }));
           localStorage.setItem("budgets", JSON.stringify(budgets));
           store.dispatch(saveBudgetsState(budgets));

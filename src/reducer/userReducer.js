@@ -36,6 +36,7 @@ const userReducer = (state = initialState, action = {}) => {
         wallet: action.wallet 
       };
     case DELETE_USER_INFO:
+      localStorage.clear();
       return { ...initialState };
     default:
       return state;

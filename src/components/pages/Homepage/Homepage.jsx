@@ -1,6 +1,6 @@
 // Import React + css
 import Typed from "typed.js";
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
@@ -25,10 +25,8 @@ const Homepage = () => {
   const dispatch = useDispatch();
 
   // état pour stocker les données de chart actuellement affichées
-  const { firstname, budget, quests } = useSelector(
-    (state) => state.user
-  );
-  
+  const { firstname, budget, quests } = useSelector((state) => state.user);
+
   const {
     daylyTransactions,
     weeklyTransactions,
@@ -38,13 +36,13 @@ const Homepage = () => {
   const expenses =
     budget.reduce((allTotal, budget) => {
       const sum = budget.operations.reduce((total, operations) => {
-        return total + operations.operation;
+        return total + Number.parseFloat(operations.amount);
       }, 0);
       return allTotal + sum;
     }, 0) || 0;
   const totalBudget =
     budget.reduce((accumulator, budget) => {
-      return accumulator + budget.value;
+      return Number.parseFloat(accumulator + budget.amount);
     }, 0) || 0;
 
   const daylyData = chartDataStructure("dayly", daylyTransactions);
@@ -124,12 +122,19 @@ const Homepage = () => {
               {budget &&
                 budget.map((specificbudget) => (
                   <h3 key={uuidv4()} className="homepage__budget-current">
-                    {specificbudget.label} : {specificbudget.value}
+                    {specificbudget.name} : {specificbudget.amount}€
                   </h3>
                 ))}
-              <button className="homepage__expenses-link">
-                Gérer son budget
-              </button>
+              <NavLink
+                to={"/budget"}
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+              >
+                <button className="homepage__expenses-link">
+                  Gérer son budget
+                </button>
+              </NavLink>
             </div>
           </div>
 
@@ -149,9 +154,16 @@ const Homepage = () => {
                 Quête secondaire suivie
               </h2>
               <p>Aller au cinéma sans acheter du popcorn</p>
-              <button className="homepage__expenses-link">
-                Journal de quêtes
-              </button>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to={"/app/quests"}
+              >
+                <button className="homepage__expenses-link">
+                  Journal de quêtes
+                </button>
+              </NavLink>
             </div>
           </div>
         </div>
