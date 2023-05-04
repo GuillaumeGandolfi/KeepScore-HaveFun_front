@@ -69,11 +69,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
       axiosPrivate
         .get(`/budget-user`)
         .then((response) => {
-          const budgets = response.data.map((budget) => ({
-            ...budget,
-            created_at: dayjs(budget.created_at).valueOf(),
-            //color: `${response.data.length * 34} 65% 50%`,
-          }));
+          const budgets = response.data
           localStorage.setItem("budgets", JSON.stringify(budgets));
           store.dispatch(saveBudgetsState(budgets));
         })
@@ -86,10 +82,7 @@ const fetchDataMiddleware = (store) => (next) => (action) => {
       axiosPrivate
         .get(`/transactions/user`)
         .then((response) => {
-          const expenses = response.data.map((expense) => ({
-            ...expense,
-            created_at: dayjs(expense.created_at).valueOf(),
-          }));
+          const expenses = response.data
           localStorage.setItem("expenses", JSON.stringify(expenses));
           store.dispatch(saveExpensesState(expenses));
         })
