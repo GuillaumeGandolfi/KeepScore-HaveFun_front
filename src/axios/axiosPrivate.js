@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { memoizedRefreshToken } from "./refreshToken";
 
-axios.defaults.baseURL = "https://avid-addition-production.up.railway.app";
+axios.defaults.baseURL = "postgres://admin_kshf:kshf@localhost:5432/kshf";
 
 axios.interceptors.request.use(
   async (config) => {
