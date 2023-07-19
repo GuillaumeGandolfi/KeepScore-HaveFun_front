@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const axiosPublic = axios.create({
-    baseURL: "postgres://admin_kshf:kshf@localhost:5432/kshf",
+    baseURL: "http://localhost:3000",
     headers: {
         "Content-Type": "application/json"
     },
