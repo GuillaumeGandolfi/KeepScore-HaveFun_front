@@ -30,7 +30,7 @@ const Homepage = () => {
   const { expenses } = useSelector((state) => state.budget);
 
   const {
-    daylyTransactions,
+    dailyTransactions,
     weeklyTransactions,
     monthlyTransactions,
     yearlyTransactions,
@@ -44,21 +44,21 @@ const Homepage = () => {
   // }
   const expensesSum =
     expenses.reduce((total, expense) => {
-     
+
         return total + Number.parseFloat(expense.amount);
       }, 0) || 0;
-     
+
   const totalBudget =
     budgets.reduce((accumulator, budget) => {
       return Number.parseFloat(accumulator + budget.amount);
     }, 0) || 0;
 
-  const daylyData = chartDataStructure("dayly", daylyTransactions);
+  const dailyData = chartDataStructure("dayly", dailyTransactions);
   const weeklyData = chartDataStructure("weekly", weeklyTransactions);
   const monthlyData = chartDataStructure("monthly", monthlyTransactions);
   const yearlyData = chartDataStructure("yearly", yearlyTransactions);
 
-  const [chartData, setChartData] = useState(daylyData);
+  const [chartData, setChartData] = useState(dailyData);
 
   const typedRef = useRef(null);
 
@@ -88,7 +88,7 @@ const Homepage = () => {
     switch (selection) {
       case "daily":
         dispatch(fetchDailyData());
-        setChartData(daylyData);
+        setChartData(dailyData);
         break;
       case "weekly":
         dispatch(fetchWeeklyData());

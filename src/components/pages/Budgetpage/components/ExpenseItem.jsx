@@ -6,8 +6,11 @@ import { TrashIcon } from "@heroicons/react/24/solid";
 
 // helper imports
 import {formatCurrency, formatDateToLocaleString, getAllMatchingItems,} from "../helpers/helpers.js";
+import {useDispatch} from "react-redux";
+import {deleteExpense, fetchExpenses} from "../../../../actions/fetchDataActions.js";
 
 const ExpenseItem = ({ expense, showBudget }) => {
+    const dispatch = useDispatch();
     console.log(expense)
     const fetcher = useFetcher();
 
@@ -16,7 +19,12 @@ const ExpenseItem = ({ expense, showBudget }) => {
         key: "id",
         value: expense.budget_id,
     })[0];
-   console.log('expenseitem-budget', budget)
+
+    const handleDeleteExpense = (event) => {
+        event.preventDefault();
+        dispatch(deleteExpense(expense.id));
+        dispatch(fetchExpenses())
+    }
 
     return (
         <>
@@ -41,6 +49,7 @@ const ExpenseItem = ({ expense, showBudget }) => {
                     <input type="hidden" name="_action" value="deleteExpense" />
                     <input type="hidden" name="expenseId" value={expense.id} />
                     <button
+                        onClick={handleDeleteExpense}
                         type="submit"
                         className="trash-btn"
                         aria-label={`Delete ${expense.name} expense`}

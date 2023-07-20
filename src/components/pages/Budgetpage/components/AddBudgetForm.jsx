@@ -35,6 +35,12 @@ const AddBudgetForm = () => {
         }
     };
 
+    const dispatch = useDispatch()
+
+    const handleSaveNewBudget = (event) => {
+        dispatch(saveNewBudget())
+    }
+
     return (
         <div className="form-wrapper">
             <h2 className="h3">

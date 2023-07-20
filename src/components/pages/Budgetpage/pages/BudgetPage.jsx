@@ -7,6 +7,7 @@ import {createExpense, deleteItem, getAllMatchingItems} from "../helpers/helpers
 import BudgetItem from "../components/BudgetItem.jsx";
 import AddExpenseForm from "../components/AddExpenseForm.jsx";
 import Table from "../components/Table.jsx";
+import {deleteExpense} from "../../../../actions/fetchDataActions.js";
 
 // création d'un loader
 export async function budgetLoader({ params }) {
